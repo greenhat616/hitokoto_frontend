@@ -30,8 +30,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/antd-ui',
-    '@/plugins/sw.js'
+    '@/plugins/antd-ui'
+    // '@/plugins/sw.js'
   ],
   /*
   ** Nuxt.js modules
