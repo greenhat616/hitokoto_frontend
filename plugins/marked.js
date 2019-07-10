@@ -1,5 +1,5 @@
 import marked from 'marked'
-
+import Vue from 'vue'
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -27,4 +27,4 @@ const install = function (Vue) {
   })
 }
 
-export default install
+Vue.use(install)
