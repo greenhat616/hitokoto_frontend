@@ -1,7 +1,7 @@
 {
   "name": "hitokoto-panel",
-  "version": "1.0.0",
-  "description": "hitokoto frontside panel",
+  "version": "1.0.0-dev",
+  "description": "一言(Hitokoto)网创立于2016年，隶属于萌创Team，目前网站主要提供一句话服务。不论在哪里，总有那么几个句子能穿透你的心。把这些句子汇聚起来，传递更多的感动。简单来说，一言(Hikototo)指的就是一句话，可以是动漫中的台词，也可以是网络上的各种小段子。留下你所喜欢的那一句话，与大家分享，这就是一言(Hitokoto)存在的目的。",
   "author": "a632079",
   "private": true,
   "scripts": {
