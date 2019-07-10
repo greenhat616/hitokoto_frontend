@@ -97,10 +97,12 @@
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-radius: 0.3em;
+    font-style: normal;
   }
 
   .error-redirect>a:hover {
     background: rgba(101, 227, 227, 0.4);
+    color: #fff;
   }
 
   @media  only screen and (max-width:768px) {
