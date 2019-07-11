@@ -39,27 +39,13 @@
   </header> -->
 </template>
 <style>
-.ant-layout-header {
-  background-color: white;
-}
 
-.ant-menu-horizontal {
-  border-bottom: 0px;
-}
-
-.ant-menu-horizontal > .ant-menu-item-active {
-  border-bottom: 0px;
-}
-
-.ant-menu-item-active {
-  border-top: 2px solid #1890ff;
-  border-bottom: 0px;
-}
 </style>
 <script>
 import HitokotoIcon from '../components/HitokotoIcon.vue'
 
 export default {
+  props: ['header'],
   components: {
     HitokotoIcon
   }

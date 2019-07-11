@@ -28,6 +28,10 @@ export default {
     'ant-design-vue/dist/antd.css',
     'highlight.js/styles/solarized-dark.css'
   ],
+
+  less: [
+    '~assets/header.less'
+  ],
   /*
   ** Plugins to load before mounting the App
   */

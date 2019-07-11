@@ -17,6 +17,8 @@
     "@nuxtjs/pwa": "^2.6.0",
     "ant-design-vue": "^1.1.10",
     "highlight.js": "^9.15.8",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
     "marked": "^0.7.0",
     "nuxt": "^2.0.0"
   },
