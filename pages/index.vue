@@ -6,7 +6,7 @@
           <hitokoto-icon /> Hitokoto 一言
         </a-col>
         <a-col :span="18">
-          <a-menu v-model="current" mode="horizontal">
+          <a-menu mode="horizontal">
             <a-menu-item key="home">
               <a-icon type="home" />首页
             </a-menu-item>
