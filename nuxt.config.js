@@ -25,12 +25,8 @@ export default {
   ** Global CSS
   */
   css: [
-    'ant-design-vue/dist/antd.css',
+    '~assets/default.less',
     'highlight.js/styles/solarized-dark.css'
-  ],
-
-  less: [
-    '~assets/header.less'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -66,6 +62,9 @@ export default {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      ctx.loaders.less.javascriptEnabled = true
     }
+  },
+  loaders: {
   }
 }
