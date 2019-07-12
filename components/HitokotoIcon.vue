@@ -1,13 +1,14 @@
 <template>
-  <hitokoto-icon/>
+<hitokoto-icon/>
 </template>
 <style>
+
 </style>
 <script>
 // import HitokotoSvg from 'static/icon.svg'
 
 const HitokotoSvg = {
-  template: `<svg width="500pt" height="500pt" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  template: `<svg width="3em" height="3em" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <g id="#ffffffff">
   </g>
   <g id="#8821fbff">
@@ -19,7 +20,7 @@ const HitokotoSvg = {
 }
 const HitokotoIcon = {
   template: `
-    <a-icon :component="HitokotoSvg" />
+    <a-icon :component="HitokotoSvg" style="width: '2em', height: '2em'"/>
   `,
   data() {
     return {
