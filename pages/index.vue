@@ -3,7 +3,7 @@
     <a-layout-header>
       <a-row>
         <a-col :span="6">
-          <hitokoto-icon /> Hitokoto 一言
+          <hitokoto-icon :style="{fontSize: '3em'}" /> Hitokoto 一言
         </a-col>
         <a-col :span="18">
           <a-menu mode="horizontal">
