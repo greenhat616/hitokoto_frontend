@@ -63,6 +63,7 @@ export default {
     */
     extend(config, ctx) {
       ctx.loaders.less.javascriptEnabled = true
+      config.resolve.alias.vue = 'vue/dist/vue.common'
     }
   },
   loaders: {
