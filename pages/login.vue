@@ -12,7 +12,10 @@
                 v-decorator="[
                   'email',
                   {
-                    rules: [{ required: true, message: '请输入邮箱地址!' }]
+                    rules: [
+                      { required: true, message: '请输入邮箱地址!' },
+                      {type: 'email', message: '请输入正确的邮箱地址！'}
+                    ]
                   }
                 ]"
                 placeholder="邮箱"
@@ -25,7 +28,12 @@
               <a-input
                 v-decorator="[
                   'password',
-                  { rules: [{ required: true, message: '请输入密码!' }] }
+                  {
+                    rules: [
+                      { required: true, message: '请输入密码!' },
+                      { min: 6, message: '密码长度应不小于 6 位'}
+                    ]
+                  }
                 ]"
                 type="password"
                 placeholder="密码"
