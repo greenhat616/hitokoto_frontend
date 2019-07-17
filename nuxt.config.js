@@ -51,6 +51,12 @@ export default {
   ** See https://auth.nuxtjs.org/api/options.html
   */
   auth: {
+    redirect: {
+      login: '/auth/login',
+      logout: '/',
+      home: '/',
+      callback: '/login'
+    }
   },
   /*
   ** Axios module configuration
