@@ -25,7 +25,7 @@ export default {
   ** Global CSS
   */
   css: [
-    'ant-design-vue/dist/antd.css',
+    '~assets/default.less',
     'highlight.js/styles/solarized-dark.css'
   ],
   /*
@@ -62,6 +62,10 @@ export default {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      ctx.loaders.less.javascriptEnabled = true
+      config.resolve.alias.vue = 'vue/dist/vue.common'
     }
+  },
+  loaders: {
   }
 }
