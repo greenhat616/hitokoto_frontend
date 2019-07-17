@@ -43,8 +43,15 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/auth'
   ],
+  /*
+  ** Auth module configuration
+  ** See https://auth.nuxtjs.org/api/options.html
+  */
+  auth: {
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
