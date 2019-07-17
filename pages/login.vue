@@ -19,7 +19,7 @@
                   }
                 ]"
                 placeholder="邮箱"
-                @change="mailOnChange"
+                @blur="mailOnBlur"
               >
                 <a-icon slot="prefix" type="mail" style="color: rgba(0,0,0,.25)" />
               </a-input>
@@ -99,10 +99,9 @@ export default {
         description: decp
       })
     },
-    mailOnChange(e) {
+    mailOnBlur() {
       // this.avatar = `https://cdn.v2ex.com/gravatar/${md5(val)}?d=mp&s=500&ts=${Date.now()}`
-      const email = (this.form.getFieldValue('email') || '') + e.data
-
+      const email = this.form.getFieldValue('email') || ''
       this.avatar = `https://cdn.v2ex.com/gravatar/${md5(email)}?d=mp&s=500&ts=${Date.now()}`
     }
   }
