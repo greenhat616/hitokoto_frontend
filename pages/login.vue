@@ -24,7 +24,7 @@
                 <a-icon slot="prefix" type="mail" style="color: rgba(0,0,0,.25)" />
               </a-input>
             </a-form-item>
-            <a-form-item>
+            <a-form-item style="margin-bottom:0.8em">
               <a-input
                 v-decorator="[
                   'password',
@@ -41,7 +41,7 @@
                 <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
               </a-input>
             </a-form-item>
-            <a-form-item style="margin-bottom: 1em;">
+            <a-form-item style="margin-bottom: 0.5em;">
               <a-checkbox
                 v-decorator="[
                   'remember',
@@ -50,7 +50,7 @@
                     initialValue: true,
                   }
                 ]"
-              >保存登录状态</a-checkbox>
+              >保持登录状态</a-checkbox>
               <a class="login-form-forgot" href>重置密码</a>
               <a-button type="primary" html-type="submit" class="login-form-button" block>登录</a-button>
               <a-button block>注册</a-button>
@@ -108,14 +108,3 @@ export default {
   }
 }
 </script>
-<style>
-#components-form-demo-normal-login .login-form {
-  max-width: 300px;
-}
-#components-form-demo-normal-login .login-form-forgot {
-  float: right;
-}
-#components-form-demo-normal-login .login-form-button {
-  width: 100%;
-}
-</style>
