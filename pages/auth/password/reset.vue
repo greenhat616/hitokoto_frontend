@@ -43,6 +43,9 @@
 
 <script>
 export default {
+  mounted() {
+    this.$emit('menuSelected', [])
+  },
   data() {
     return {
     }

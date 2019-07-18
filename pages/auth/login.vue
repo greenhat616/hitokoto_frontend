@@ -1,7 +1,7 @@
 <template>
-  <div style="margin-top:10em;">
+  <div>
     <a-row>
-      <a-col :md="{span: 10, offset: 7}" :lg="{span: 8, offset: 8}" :xl="{span: 6, offset: 9}" >
+      <a-col :md="{span: 10, offset: 7}" :lg="{span: 8, offset: 8}" :xl="{span: 6, offset: 9}" style="margin-top: 8em">
         <a-card>
           <login-avatar
             :avatar="avatar"
@@ -51,7 +51,7 @@
                   }
                 ]"
               >保持登录状态</a-checkbox>
-              <a class="login-form-forgot" href>重置密码</a>
+              <nuxt-link class="login-form-forgot" to="/auth/password/reset">重置密码</nuxt-link>
               <a-button type="primary" html-type="submit" class="login-form-button" block>登录</a-button>
               <a-button block>注册</a-button>
             </a-form-item>
@@ -69,6 +69,9 @@ import loginAvatar from '~/components/loginAvatar.vue'
 export default {
   components: {
     loginAvatar
+  },
+  mounted() {
+    this.$emit('menuSelected', ['login'])
   },
   data() {
     return {

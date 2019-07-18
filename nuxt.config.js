@@ -13,6 +13,9 @@ export default {
       { name: 'keywords', content: 'Hitokoto,一言,Api,免费Api,一言网,Hitokoto.cn,感动,动漫,二次元,台词,语句,一句话,Offical,官方,ヒトコト' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
+    script: [
+      { src: 'https://cdn.jsdelivr.net/gh/MoePlayer/APlayer@latest/dist/APlayer.min.js' }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]

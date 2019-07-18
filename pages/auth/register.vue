@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top:10em;">
+  <div>
     <a-modal
       title="一言网用户及版权保护协定"
       :visible="visible"
@@ -11,7 +11,7 @@
     >
       <div v-html="ModalHTML"></div>
     </a-modal>
-    <a-row>
+    <a-row style="margin-top:8em;">
       <a-col :md="{span: 10, offset: 7}" :lg="{span: 8, offset: 8}" :xl="{span: 6, offset: 9}" >
         <a-card title="注册">
           <a-form id="hitokoto-register" :form="form" class="login-form" @submit="handleSubmit">
@@ -103,7 +103,11 @@
 
 <script>
 import marked from 'marked'
+
 export default {
+  mounted() {
+    this.$emit('menuSelected', [])
+  },
   data() {
     return {
       visible: false,

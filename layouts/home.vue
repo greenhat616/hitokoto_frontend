@@ -1,18 +1,17 @@
 <template>
   <a-layout>
-    <common-header :current="current" />
+    <!--Home Header-->
+    <home-header :current="current" />
     <nuxt v-on:menuSelected="handleCurrent" />
-    <no-ssr>
-      <fixed-player />
-    </no-ssr>
+    <fixed-player />
   </a-layout>
 </template>
 <script>
-import commonHeader from '~/components/commonHeader.vue'
+import homeHeader from '~/components/homeHeader.vue'
 import fixedPlayer from '~/components/fixedPlayer.vue'
 export default {
   components: {
-    commonHeader,
+    homeHeader,
     fixedPlayer
   },
   data() {
