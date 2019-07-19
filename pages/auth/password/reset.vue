@@ -44,7 +44,7 @@
 <script>
 export default {
   mounted() {
-    this.$emit('menuSelected', [])
+    this.$store.commit('menuSelected/clearCurrent')
   },
   data() {
     return {

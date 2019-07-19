@@ -20,7 +20,7 @@
           </a-button>
         </a-col>
         <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 11, offset: 9}">
-          <a-menu mode="horizontal" v-model="current" class='menu-site'>
+          <a-menu mode="horizontal" :selected-keys="getCurrent" class='menu-site'>
             <a-menu-item key="home">
               <nuxt-link to="/"><a-icon type="home" />首页</nuxt-link>
             </a-menu-item>
@@ -38,7 +38,7 @@
       </a-row>
     </a-layout-header>
     <a-drawer placement="right" :closable="false" @close="onClose" :visible="menu" wrapClassName="hitokoto-header">
-      <a-menu mode="vertical" v-model="current">
+      <a-menu mode="vertical" :selected-keys="getCurrent">
         <a-menu-item key="home">
           <a-icon type="home" />首页
         </a-menu-item>
@@ -60,9 +60,13 @@
 import HitokotoIcon from '~/components/HitokotoIcon.vue'
 
 export default {
-  props: ['current'],
   components: {
     HitokotoIcon
+  },
+  computed: {
+    getCurrent: function () {
+      return this.$store.state.menuSelected.current
+    }
   },
   data() {
     return {

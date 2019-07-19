@@ -106,7 +106,7 @@ import marked from 'marked'
 
 export default {
   mounted() {
-    this.$emit('menuSelected', [])
+    this.$store.commit('menuSelected/clearCurrent')
   },
   data() {
     return {

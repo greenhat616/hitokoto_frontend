@@ -1,8 +1,8 @@
 <template>
   <a-layout>
     <!--Home Header-->
-    <home-header :current="current" />
-    <nuxt v-on:menuSelected="handleCurrent" />
+    <home-header  />
+    <nuxt />
     <fixed-player />
   </a-layout>
 </template>
@@ -13,16 +13,6 @@ export default {
   components: {
     homeHeader,
     fixedPlayer
-  },
-  data() {
-    return {
-      current: []
-    }
-  },
-  methods: {
-    handleCurrent(data) {
-      this.current = data
-    }
   }
 }
 </script>

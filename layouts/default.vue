@@ -1,7 +1,7 @@
 <template>
   <a-layout>
-    <common-header :current="current" />
-    <nuxt v-on:menuSelected="handleCurrent" />
+    <common-header />
+    <nuxt />
     <fixed-player />
   </a-layout>
 </template>
@@ -12,16 +12,6 @@ export default {
   components: {
     commonHeader,
     fixedPlayer
-  },
-  data() {
-    return {
-      current: []
-    }
-  },
-  methods: {
-    handleCurrent(data) {
-      this.current = data
-    }
   }
 }
 </script>

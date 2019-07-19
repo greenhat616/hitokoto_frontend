@@ -71,7 +71,7 @@ export default {
     loginAvatar
   },
   mounted() {
-    this.$emit('menuSelected', ['login'])
+    this.$store.commit('menuSelected/updateCurrent', 'login')
   },
   data() {
     return {
