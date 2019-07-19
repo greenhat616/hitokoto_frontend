@@ -47,7 +47,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    'nuxt-vuex-localstorage'
   ],
   /*
   ** Auth module configuration

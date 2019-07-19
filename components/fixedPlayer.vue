@@ -1,3 +1,6 @@
+<template>
+  <div></div>
+</template>
 <script>
 import MD from 'mobile-detect'
 export default {
@@ -26,11 +29,6 @@ export default {
         window.player.list.add(this.audio)
       }
     }
-  },
-  render() {
-    return (
-      <div></div>
-    )
   },
   mounted: function () {
     this.initPlayer()
