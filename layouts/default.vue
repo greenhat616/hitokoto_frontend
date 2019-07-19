@@ -2,9 +2,7 @@
   <a-layout>
     <common-header :current="current" />
     <nuxt v-on:menuSelected="handleCurrent" />
-    <no-ssr>
-      <fixed-player />
-    </no-ssr>
+    <fixed-player />
   </a-layout>
 </template>
 <script>

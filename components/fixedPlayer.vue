@@ -10,7 +10,7 @@ export default {
   },
   watch: {
     audio: function (v) {
-      if (v.length > 0 && !this.isActived) {
+      if (v.length > 0 && !this.isActived && !window.player) {
         window.player = new window.APlayer({
           lrcType: 1,
           fixed: true,
@@ -19,7 +19,9 @@ export default {
           audio: this.audio
         })
         this.isActived = false
-      } else {
+      } else if (window.player && !this.isActived) {
+        this.isActived = true
+      } else { // 只是简单匹配， 后期要检测内容
         window.player.list.clear()
         window.player.list.add(this.audio)
       }
@@ -27,7 +29,7 @@ export default {
   },
   render() {
     return (
-      <div id="aplayer" class="aplayer"></div>
+      <div></div>
     )
   },
   mounted: function () {
