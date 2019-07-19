@@ -1,9 +1,12 @@
 export const state = () => ({
-  id: 0
+  id: 0,
+  player: {
+    isAutoPlay: 0
+  }
 })
 
 export const mutations = {
-  setPlaylist(state, h) {
-    state.id = h
+  setPlayerAutoPlay(state, h) {
+    state.player.isAutoPlay = h
   }
 }

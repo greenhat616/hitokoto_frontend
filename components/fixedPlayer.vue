@@ -8,20 +8,49 @@ export default {
     return {
       audio: [],
       isActived: false,
-      auto: false
+      isMobile: false
+    }
+  },
+  computed: {
+    getPlayerAutoPlaySet: function () {
+      return this.$store.state.localStorage.player.isAutoPlay
     }
   },
   watch: {
     audio: function (v) {
       if (v.length > 0 && !this.isActived && !window.player) {
-        window.player = new window.APlayer({
-          lrcType: 1,
-          fixed: true,
-          autoplay: this.auto,
-          preload: 'metadata',
-          audio: this.audio
-        })
-        this.isActived = false
+        const audios = this.audio
+        window.activePlayer = function (auto) {
+          window.player = new window.APlayer({
+            lrcType: 1,
+            fixed: true,
+            autoplay: auto,
+            preload: 'metadata',
+            audio: audios
+          })
+        }
+        if (!this.isMobile) {
+          if (this.getPlayerAutoPlaySet === 0) {
+            const _this = this
+            this.$confirm({
+              title: '需要启用播放器的自动播放嘛？',
+              content: '如果你没有切换歌单的话， 我们将默认为你播放我们的每月推荐歌单。',
+              cancelText: '拒绝',
+              okText: '好的',
+              onOk: function () {
+                _this.$store.commit('localStorage/setPlayerAutoPlay', 1)
+                window.activePlayer(true)
+              },
+              onCancel: function () {
+                _this.$store.commit('localStorage/setPlayerAutoPlay', 2)
+                window.activePlayer(false)
+              }
+            })
+          } else {
+            window.activePlayer(this.getPlayerAutoPlaySet === 1)
+          }
+        }
+        this.isActived = true
       } else if (window.player && !this.isActived) {
         this.isActived = true
       } else { // 只是简单匹配， 后期要检测内容
@@ -75,14 +104,14 @@ export default {
       const _this = this
       const m = new MD(window.navigator.userAgent)
       if (m.tablet() || m.phone()) { // is mobile device
-        this.auto = false
+        this.isMobile = true
         this.initAplayer()
           .catch(function (err) {
             window.console.error(err)
             _this.notificationBox('激活音乐播放器失败', `错误信息: ${err.message}`, 'error')
           })
       } else {
-        this.auto = true
+        this.isMobile = false
         this.initAplayer()
           .catch(function (err) {
             window.console.error(err)
