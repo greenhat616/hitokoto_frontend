@@ -18,7 +18,12 @@
         </a-row>
       </a-col>
       <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 11, offset: 9}">
-        <a-menu mode="horizontal" v-model="current" style="float: right;" class='home-menu-site'>
+        <a-menu
+          mode="horizontal"
+          style="float: right;"
+          class='home-menu-site'
+          :selectedKeys="[now]"
+          >
           <a-menu-item key="home">
             <nuxt-link to="/">
               <a-icon type="home" />首页</nuxt-link>
@@ -42,7 +47,7 @@
   <a-drawer placement="right" :closable="false" @close="onClose" :visible="menu" wrapClassName="hitokoto-header">
     <a-menu mode="vertical" v-model="current">
       <a-menu-item key="home">
-        <a-icon type="home" />首页
+        <a-icon type="home"/>首页
       </a-menu-item>
       <a-menu-item key="api">
         <a-icon type="api" />接口说明
@@ -68,7 +73,8 @@ export default {
   },
   data() {
     return {
-      menu: false
+      menu: false,
+      now: 'home'
     }
   },
   methods: {
@@ -77,6 +83,23 @@ export default {
     },
     onClose() {
       this.menu = false
+    },
+    mounted() {
+      const url = this.$route.path
+      switch (url) {
+        case '/':
+          this.now = 'home'
+          break
+        case '/api':
+          this.now = 'api'
+          break
+        case '/about':
+          this.now = 'about'
+          break
+        case '/auth/login':
+          this.now = 'login'
+          break
+      }
     }
   }
 }
