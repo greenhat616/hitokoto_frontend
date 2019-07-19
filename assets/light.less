@@ -1,5 +1,26 @@
 @layout-header-background: rgb(255, 255, 255);
 
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+#__nuxt {
+  min-height: 100%;
+  display: flex;
+}
+#__layout {
+  flex: 1;
+}
+
+.ant-layout {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .login-form-forgot {
   float: right;
 }
@@ -21,16 +42,19 @@
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .big-font {
-  font-size: 1.85em;
-  font-weight: 500;
+  font-size: 1.5em;
+  font-weight: 400;
   color: #8821fb;
 }
 
-.ant-menu {
-  border-bottom: 0px;
+.menu-button {
+  margin-bottom: 16px; 
+  border: 0px;
+  margin-right: -1em;
 }
 
 .no-border {
@@ -49,6 +73,10 @@ a {
 * header
 */
 .menu-site {
+  .ant-menu {
+    border-bottom: 0;
+  }
+
   .ant-menu-item,
   .ant-menu-submenu {
     border-bottom: 0;
@@ -67,8 +95,8 @@ a {
     border-top: 2px solid #1890ff;
   }
 
-
   float: right;
+  border-bottom: 0;
 }
 
 .ant-menu-vertical>.ant-menu-item,
@@ -89,17 +117,51 @@ a {
   padding-bottom: 8.5px;
 }
 
-.hitokoto-header .ant-drawer-body {
+.hitokoto-header-drawer .ant-drawer-body {
   padding: 0;
 }
-
-.home-menu-site > li {
-  padding-top: 15px;
-  padding-bottom: 15px;
+.hitokoto-header {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 24px;
+  margin: 0 auto 0;
 }
 
-.home-site .logo {
-  height: 75px;
+.home-header {
+  box-shadow: none;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto 0;
+  padding: 0 24px;
+}
+
+
+.home-menu-site > li {
+  padding-top: 8.5px;
+  padding-bottom: 8.5px;
+}
+
+.home-menu-site {
+  .ant-menu-item,
+  .ant-menu-submenu {
+    border-bottom: 0;
+    border-top: 2px solid transparent;
+  }
+
+  .ant-menu-item:hover,
+  .ant-menu-submenu:hover,
+  .ant-menu-item-active,
+  .ant-menu-submenu-active,
+  .ant-menu-item-open,
+  .ant-menu-submenu-open,
+  .ant-menu-item-selected,
+  .ant-menu-submenu-selected {
+    border-bottom: 0;
+    border-top: 2px solid transparent;
+  }
+
+  float: right;
+  border-bottom: 0;
 }
 
 .aplayer {
@@ -108,4 +170,8 @@ a {
 
 .aplayer-miniswitcher, .aplayer-body, .aplayer-button {
   box-sizing: content-box;
+}
+
+.aplayer.aplayer-fixed .aplayer-lrc {
+  text-shadow: 0;
 }
