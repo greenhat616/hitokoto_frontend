@@ -1,5 +1,5 @@
 <template>
-  <div style="background: #ffffff;">
+  <div class="home-header-outer">
     <a-layout-header class="home-header">
       <a-row>
         <a-col :xs="{span: 12, offset: 6}" :sm="{span: 6, offset: 9}" :md="{span:4, offset: 0}">

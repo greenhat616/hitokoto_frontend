@@ -1,5 +1,5 @@
 <template>
-  <a-layout>
+  <a-layout class="home-layout">
     <!--Home Header-->
     <home-header  />
     <nuxt />
