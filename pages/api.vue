@@ -1,16 +1,12 @@
 <template>
 <a-row>
-  <a-col span="16" offset="4">
+  <a-col :xs="{span: 20, offset:2}" :md="{span: 16, offset:4}">
     <div class="shadow-background">
-      <a-row v-if="is_load" class="full-height" type="flex" align="middle" justify="center">
-        <a-co>
-          <div v-html="content"></div>
-        </a-co>
+      <a-row v-if="is_load" class="full-height markdown-padding" type="flex" align="top" justify="start">
+        <div v-html="content"></div>
       </a-row>
       <a-row v-if="!is_load" class="full-height" type="flex" align="middle" justify="center">
-        <a-co>
-          <a-icon type="loading" :style="{fontSize: '2.5em'}"></a-icon>
-        </a-co>
+        <a-icon type="loading" :style="{fontSize: '2.5em'}"></a-icon>
       </a-row>
     </div>
   </a-col>
@@ -19,6 +15,10 @@
 <style>
 .full-height {
   height: 100%;
+}
+
+.markdown-padding {
+  padding: 2em 4em;
 }
 
 .shadow-background {
