@@ -11,7 +11,7 @@
     >
       <div v-html="ModalHTML"></div>
     </a-modal>
-    <a-row style="margin-top:8em;">
+    <a-row style="margin-top:6.25em;">
       <a-col :md="{span: 10, offset: 7}" :lg="{span: 8, offset: 8}" :xl="{span: 6, offset: 9}" >
         <a-card title="注册">
           <a-form id="hitokoto-register" :form="form" class="login-form" @submit="handleSubmit">
