@@ -25,6 +25,7 @@ const install = function (Vue) {
       el.innerHTML = marked(el.innerText)
     }
   })
+  Vue.prototype.marked = marked
 }
 
 Vue.use(install)

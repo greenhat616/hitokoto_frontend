@@ -17,7 +17,8 @@ export default {
       { src: 'https://cdn.jsdelivr.net/gh/MoePlayer/APlayer@latest/dist/APlayer.min.js' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/solarized-dark.min.css' }
     ]
   },
   /*
@@ -28,8 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '~assets/default.less',
-    'highlight.js/styles/solarized-dark.css'
+    '~assets/default.less'
   ],
   /*
   ** Plugins to load before mounting the App
