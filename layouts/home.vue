@@ -1,7 +1,7 @@
 <template>
   <a-layout class="home-layout">
     <!--Home Header-->
-    <home-header  />
+    <home-header />
     <nuxt />
     <fixed-player />
   </a-layout>
