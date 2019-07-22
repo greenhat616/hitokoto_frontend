@@ -9,7 +9,7 @@
           <p>今日，2019年7月22日，天气晴朗，气温高，注意防暑，欢迎回到一言控制面板。</p>
         </div>
       </a-col>
-      <a-col :xm="{span: 0}" :sm="{span: 0}" :md="{span:12}">
+      <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span:12}">
         <div class="welcome-status">
           <div class="welcome-status-child">
             <a-row>
@@ -75,8 +75,8 @@
       </a-col>
     </a-row>
     <div class="dashboard-content">
-      <a-row :gutter="{xm: 0, sm: 0, md: 24}">
-        <a-col :xm="{span: 24}" :sm="{span: 24}" :md="{span: 18}">
+      <a-row :gutter="{xs: 0, sm: 0, md: 24}">
+        <a-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 18}">
           <a-card title="用户数据" class="user-data">
             <a-card-grid style="width: 50%;">
               <h3>
@@ -90,7 +90,7 @@
             </a-card-grid>
           </a-card>
         </a-col>
-        <a-col :xm="{span: 0}" :sm="{span: 0}" :md="{span: 6 }">
+        <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 6 }">
           <a-card class="sponsor-card">
             <img v-lazy="'https://piccdn.freejishu.com/images/2019/07/21/PnY445.png'">
           </a-card>
