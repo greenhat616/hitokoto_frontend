@@ -9,9 +9,11 @@ body {
 #__nuxt {
   min-height: 100%;
   display: flex;
+  max-width: 100%;
 }
 #__layout {
   flex: 1;
+  max-width: 100%;
 }
 
 .ant-layout {
@@ -219,10 +221,8 @@ a {
 .table {
   width: 100%;
   max-width: 100%;
-  table-layout: fixed;
   overflow: scroll;
   word-wrap: break-word;
-  word-break: break-all;
   margin-bottom: 20px;
   // Cells
   > thead,
@@ -339,10 +339,6 @@ a {
   .markdown-content {
     img {
       width: 100%;
-    }
-    pre {
-      white-space: pre-wrap;
-      overflow: auto;
     }
   }
 }
