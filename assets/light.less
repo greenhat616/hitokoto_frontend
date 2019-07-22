@@ -219,6 +219,10 @@ a {
 .table {
   width: 100%;
   max-width: 100%;
+  table-layout: fixed;
+  overflow: scroll;
+  word-wrap: break-word;
+  word-break: break-all;
   margin-bottom: 20px;
   // Cells
   > thead,
@@ -326,12 +330,19 @@ a {
   img {
     width: 65%;
   }
-
+  pre {
+    white-space: pre;
+    overflow: auto;
+  }
 }
 @media screen and (max-width: 768px) {
   .markdown-content {
     img {
       width: 100%;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow: auto;
     }
   }
 }
