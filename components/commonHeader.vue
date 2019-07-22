@@ -56,11 +56,14 @@
           </nuxt-link>
         </a-menu-item>
         <a-menu-item key="api">
-          <a-icon type="api" />接口说明
+          <nuxt-link to="/api">
+            <a-icon type="api" />
+            接口说明
+          </nuxt-link>
         </a-menu-item>
         <a-menu-item key="about">
           <nuxt-link to="/api">
-            <a-icon type="global/8*" />
+            <a-icon type="global" />
             关于我们
           </nuxt-link>
         </a-menu-item>

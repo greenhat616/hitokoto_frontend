@@ -1,13 +1,21 @@
 <template>
   <div class="flex">
-    <div class="background"></div>
+    <div class="background" />
     <a-row style="width:100%">
       <a-col :xxl="{span:6, offset:3}">
-        <h1 v-if="error.statusCode === 404" class="error-title">404 - Not Found</h1>
-        <h1 v-else class="error-title">未知错误</h1>
-        <p class="error-describe">页面似乎被年兽吃掉了，去首页逛逛吧</p>
+        <h1 v-if="error.statusCode === 404" class="error-title">
+          404 - Not Found
+        </h1>
+        <h1 v-else class="error-title">
+          未知错误
+        </h1>
+        <p class="error-describe">
+          页面似乎被年兽吃掉了，去首页逛逛吧
+        </p>
         <p class="error-redirect">
-          <nuxt-link to="/">返回首页</nuxt-link>
+          <nuxt-link to="/">
+            返回首页
+          </nuxt-link>
         </p>
       </a-col>
     </a-row>
@@ -113,7 +121,13 @@
 </style>
 <script>
 export default {
-  props: ['error'], // 你可以为错误页面指定自定义的布局
+  props: {
+    // eslint-disable-next-line vue/require-default-prop
+    error: {
+      require: true,
+      type: [Object]
+    }
+  }, // 你可以为错误页面指定自定义的布局
   head() {
     return {
       title: this.error.statusCode === 404 ? '页面不存在' : '未知错误'
