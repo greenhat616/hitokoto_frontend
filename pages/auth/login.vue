@@ -50,10 +50,18 @@
                     initialValue: true,
                   }
                 ]"
-              >保持登录状态</a-checkbox>
-              <nuxt-link class="login-form-forgot" to="/auth/password/reset">重置密码</nuxt-link>
-              <a-button type="primary" html-type="submit" class="login-form-button" block>登录</a-button>
-              <a-button block @click="goRegister">注册</a-button>
+              >
+                保持登录状态
+              </a-checkbox>
+              <nuxt-link class="login-form-forgot" to="/auth/password/reset">
+                重置密码
+              </nuxt-link>
+              <a-button type="primary" html-type="submit" class="login-form-button" block>
+                登录
+              </a-button>
+              <a-button block @click="goRegister">
+                注册
+              </a-button>
             </a-form-item>
           </a-form>
         </a-card>
@@ -70,13 +78,13 @@ export default {
   components: {
     loginAvatar
   },
-  mounted() {
-    this.$store.commit('menuSelected/updateCurrent', 'login')
-  },
   data() {
     return {
       avatar: 'https://cdn.v2ex.com/gravatar/d41d8cd98f00b204e9800998ecf8427e?d=mp&f=y&s=500'
     }
+  },
+  mounted() {
+    this.$store.commit('menuSelected/updateCurrent', 'login')
   },
   head() {
     return {

@@ -1,16 +1,5 @@
 <template>
   <div style="margin-top:10em;">
-    <a-modal
-      title="一言网用户及版权保护协定"
-      :visible="visible"
-      @ok="handleOk"
-      :confirmLoading="confirmLoading"
-      @cancel="handleCancel"
-      cancelText="拒绝"
-      okText="同意协定"
-    >
-      <div v-html="ModalHTML"></div>
-    </a-modal>
     <a-row>
       <a-col :md="{span: 10, offset: 7}" :lg="{span: 8, offset: 8}" :xl="{span: 6, offset: 9}" >
         <a-card title="重置密码">
@@ -32,7 +21,9 @@
               </a-input>
             </a-form-item>
             <a-form-item style="margin-bottom: 0.5em;">
-              <a-button type="primary" html-type="submit" block>发送重置链接</a-button>
+              <a-button type="primary" html-type="submit" block>
+                发送重置链接
+              </a-button>
             </a-form-item>
           </a-form>
         </a-card>
@@ -43,12 +34,12 @@
 
 <script>
 export default {
-  mounted() {
-    this.$store.commit('menuSelected/clearCurrent')
-  },
   data() {
     return {
     }
+  },
+  mounted() {
+    this.$store.commit('menuSelected/clearCurrent')
   },
   head() {
     return {

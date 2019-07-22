@@ -2,20 +2,20 @@
   <div>
     <a-modal
       title="一言网用户及版权保护协定"
+      cancel-text="拒绝"
+      ok-text="同意协定"
       :visible="visible"
+      :confirm-loading="confirmLoading"
       @ok="handleOk"
-      :confirmLoading="confirmLoading"
       @cancel="handleCancel"
-      cancelText="拒绝"
-      okText="同意协定"
     >
-      <div v-html="ModalHTML"></div>
+      <div v-html="ModalHTML" />
     </a-modal>
     <a-row style="margin-top:6.25em;">
       <a-col :md="{span: 10, offset: 7}" :lg="{span: 8, offset: 8}" :xl="{span: 6, offset: 9}" >
         <a-card title="注册">
           <a-form id="hitokoto-register" :form="form" class="login-form" @submit="handleSubmit">
-          <a-form-item style="margin-bottom: 0.9em">
+            <a-form-item style="margin-bottom: 0.9em">
               <a-input
                 v-decorator="[
                   'username',
@@ -91,8 +91,12 @@
                   }
                 ]"
                 @change="handleAgreementChange"
-              >接受 <a id="hitokoto-rule">《一言网用户及版权保护协定》</a></a-checkbox>
-              <a-button type="primary" html-type="submit" block>注册</a-button>
+              >
+                接受 <a id="hitokoto-rule">《一言网用户及版权保护协定》</a>
+              </a-checkbox>
+              <a-button type="primary" html-type="submit" block>
+                注册
+              </a-button>
             </a-form-item>
           </a-form>
         </a-card>
@@ -105,9 +109,6 @@
 import marked from 'marked'
 
 export default {
-  mounted() {
-    this.$store.commit('menuSelected/clearCurrent')
-  },
   data() {
     return {
       visible: false,
@@ -116,6 +117,9 @@ export default {
       agreementUpdated: false,
       agreementMarkDown: `# 测试文本`
     }
+  },
+  mounted() {
+    this.$store.commit('menuSelected/clearCurrent')
   },
   head() {
     return {
