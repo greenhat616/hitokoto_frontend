@@ -18,36 +18,57 @@
           </a-row>
         </a-col>
         <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 11, offset: 9}">
-          <a-menu mode="horizontal" :selected-keys="getCurrent" class='menu-site'>
+          <a-menu mode="horizontal" :selected-keys="getCurrent" class="menu-site">
             <a-menu-item key="home">
-              <nuxt-link to="/"><a-icon type="home" />首页</nuxt-link>
+              <nuxt-link to="/">
+                <a-icon type="home" />
+                首页
+              </nuxt-link>
             </a-menu-item>
             <a-menu-item key="api">
-              <nuxt-link to="/api"><a-icon type="api" />接口说明</nuxt-link>
+              <nuxt-link to="/api">
+                <a-icon type="api" />
+                接口说明
+              </nuxt-link>
             </a-menu-item>
             <a-menu-item key="about">
-              <nuxt-link to="/about"><a-icon type="global" />关于我们</nuxt-link>
+              <nuxt-link to="/about">
+                <a-icon type="global" />
+                关于我们
+              </nuxt-link>
             </a-menu-item>
             <a-menu-item key="login">
-              <nuxt-link to="/auth/login"><a-icon type="user" />用户登录</nuxt-link>
+              <nuxt-link to="/auth/login">
+                <a-icon type="user" />
+                用户登录
+              </nuxt-link>
             </a-menu-item>
           </a-menu>
         </a-col>
       </a-row>
     </a-layout-header>
-    <a-drawer placement="right" :closable="false" @close="onClose" :visible="menu" wrapClassName="hitokoto-header-drawer">
+    <a-drawer wrap-class-name="hitokoto-header-drawer" placement="right" :closable="false" :visible="menu" @close="onClose">
       <a-menu mode="vertical" :selected-keys="getCurrent">
         <a-menu-item key="home">
-          <nuxt-link to="/"><a-icon type="home" />首页</nuxt-link>
+          <nuxt-link to="/">
+            <a-icon type="home" />
+            首页
+          </nuxt-link>
         </a-menu-item>
         <a-menu-item key="api">
           <a-icon type="api" />接口说明
         </a-menu-item>
         <a-menu-item key="about">
-          <nuxt-link to="/api"><a-icon type="api" />接口说明</nuxt-link>
+          <nuxt-link to="/api">
+            <a-icon type="global/8*" />
+            关于我们
+          </nuxt-link>
         </a-menu-item>
         <a-menu-item key="login">
-          <nuxt-link to="/auth/login"><a-icon type="user" />用户登录</nuxt-link>
+          <nuxt-link to="/auth/login">
+            <a-icon type="user" />
+            用户登录
+          </nuxt-link>
         </a-menu-item>
       </a-menu>
     </a-drawer>
@@ -63,14 +84,14 @@ export default {
   components: {
     HitokotoIcon
   },
-  computed: {
-    getCurrent: function () {
-      return this.$store.state.menuSelected.current
-    }
-  },
   data() {
     return {
       menu: false
+    }
+  },
+  computed: {
+    getCurrent: function () {
+      return this.$store.state.menuSelected.current
     }
   },
   methods: {

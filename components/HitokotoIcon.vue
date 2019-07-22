@@ -1,5 +1,5 @@
 <template>
-<hitokoto-icon/>
+  <hitokoto-icon />
 </template>
 <style>
 
