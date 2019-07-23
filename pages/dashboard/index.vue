@@ -1,112 +1,137 @@
 <template>
-  <div class="dashboard">
-    <a-row>
-      <a-col :sm="24" :md="{span: 12}">
-        <div class="welcome-message">
-          <h1>
-            <b>早上好， a632079。</b>
-          </h1>
-          <p>今日，2019年7月22日，天气晴朗，气温高，注意防暑，欢迎回到一言控制面板。</p>
+<div class="dashboard">
+  <a-row>
+    <a-col :sm="24" :md="{span: 12}">
+      <div class="welcome-message">
+        <h1>
+          <b>{{ welcomeWord }}</b>
+        </h1>
+        <p>今日，2019年7月22日，天气晴朗，气温高，注意防暑，欢迎回到一言控制面板。</p>
+      </div>
+    </a-col>
+    <a-col :xm="{span: 0}" :sm="{span: 0}" :md="{span:12}">
+      <div class="welcome-status">
+        <div class="welcome-status-child">
+          <a-row>
+            <a-col :md="10">
+              <div class="welcome-status-child-icon-outer">
+                <a-icon class="welcome-status-child-icon" type="heart" theme="filled" style="color: hotpink" />
+              </div>
+            </a-col>
+            <a-col :md="14">
+              <div class="welcome-status-child-text">
+                <span class="welcome-status-child-text-number">0</span>
+                <span class="welcome-status-child-text-desc">已收藏句子</span>
+              </div>
+            </a-col>
+          </a-row>
         </div>
-      </a-col>
-      <a-col :xm="{span: 0}" :sm="{span: 0}" :md="{span:12}">
-        <div class="welcome-status">
-          <div class="welcome-status-child">
-            <a-row>
-              <a-col :md="10">
-                <div class="welcome-status-child-icon-outer">
-                  <a-icon
-                    class="welcome-status-child-icon"
-                    type="heart"
-                    theme="filled"
-                    style="color: hotpink"
-                  />
-                </div>
-              </a-col>
-              <a-col :md="14">
-                <div class="welcome-status-child-text">
-                  <span class="welcome-status-child-text-number">0</span>
-                  <span class="welcome-status-child-text-desc">已收藏句子</span>
-                </div>
-              </a-col>
-            </a-row>
-          </div>
-          <div class="welcome-status-child">
-            <a-row>
-              <a-col :md="10">
-                <div class="welcome-status-child-icon-outer">
-                  <a-icon
-                    class="welcome-status-child-icon"
-                    type="read"
-                    theme="filled"
-                    style="color: cornflowerblue"
-                  />
-                </div>
-              </a-col>
-              <a-col :md="14">
-                <div class="welcome-status-child-text">
-                  <span class="welcome-status-child-text-number">0</span>
-                  <span class="welcome-status-child-text-desc">待处理句子</span>
-                </div>
-              </a-col>
-            </a-row>
-          </div>
-          <div class="welcome-status-child">
-            <a-row>
-              <a-col :md="10">
-                <div class="welcome-status-child-icon-outer">
-                  <a-icon
-                    class="welcome-status-child-icon"
-                    type="profile"
-                    theme="filled"
-                    style="color: orange"
-                  />
-                </div>
-              </a-col>
-              <a-col :md="14">
-                <div class="welcome-status-child-text">
-                  <span class="welcome-status-child-text-number">0</span>
-                  <span class="welcome-status-child-text-desc">待处理工单</span>
-                </div>
-              </a-col>
-            </a-row>
-          </div>
+        <div class="welcome-status-child">
+          <a-row>
+            <a-col :md="10">
+              <div class="welcome-status-child-icon-outer">
+                <a-icon class="welcome-status-child-icon" type="read" theme="filled" style="color: cornflowerblue" />
+              </div>
+            </a-col>
+            <a-col :md="14">
+              <div class="welcome-status-child-text">
+                <span class="welcome-status-child-text-number">0</span>
+                <span class="welcome-status-child-text-desc">待处理句子</span>
+              </div>
+            </a-col>
+          </a-row>
         </div>
+        <div class="welcome-status-child">
+          <a-row>
+            <a-col :md="10">
+              <div class="welcome-status-child-icon-outer">
+                <a-icon class="welcome-status-child-icon" type="profile" theme="filled" style="color: orange" />
+              </div>
+            </a-col>
+            <a-col :md="14">
+              <div class="welcome-status-child-text">
+                <span class="welcome-status-child-text-number">0</span>
+                <span class="welcome-status-child-text-desc">待处理工单</span>
+              </div>
+            </a-col>
+          </a-row>
+        </div>
+      </div>
+    </a-col>
+  </a-row>
+  <div class="dashboard-content">
+    <a-row :gutter="{xm: 0, sm: 0, md: 24}">
+      <a-col :xm="{span: 24}" :sm="{span: 24}" :md="{span: 18}">
+        <a-card title="用户数据" class="user-data">
+          <a-card-grid style="width: 50%;">
+            <h3>
+              <b>一言</b>
+            </h3>
+            <a-row type="flex" justify="space-around" align="middle">
+              <a-col>
+                <div class="gray-font">已通过</div>
+                <div class="box">
+                  <div class="count-num">123</div>
+                </div>
+              </a-col>
+              <a-col>
+                <div class="gray-font">带审核</div>
+                <div class="box">
+                  <div class="count-num">456</div>
+                </div>
+              </a-col>
+              <a-col>
+                <div class="gray-font">已驳回</div>
+                <div class="box">
+                  <div class="count-num">789</div>
+                </div>
+              </a-col>
+            </a-row>
+          </a-card-grid>
+          <a-card-grid style="width: 50%;">
+            <h3>
+              <b>工单</b>
+            </h3>
+            <a-row type="flex" justify="space-around" align="middle">
+              <a-col>
+                <div class="gray-font">全部</div>
+                <div class="box">
+                  <div class="count-num">123</div>
+                </div>
+              </a-col>
+              <a-col>
+                <div class="gray-font">待处理</div>
+                <div class="box">
+                  <div class="count-num">456</div>
+                </div>
+              </a-col>
+              <a-col>
+                <div class="gray-font">待回复</div>
+                <div class="box">
+                  <div class="count-num">789</div>
+                </div>
+              </a-col>
+              <a-col>
+                <div class="gray-font">已完成</div>
+                <div class="box">
+                  <div class="count-num">100</div>
+                </div>
+              </a-col>
+            </a-row>
+          </a-card-grid>
+        </a-card>
       </a-col>
-    </a-row>
-    <div class="dashboard-content">
-      <a-row :gutter="{xm: 0, sm: 0, md: 24}">
-        <a-col :xm="{span: 24}" :sm="{span: 24}" :md="{span: 18}">
-          <a-card title="用户数据" class="user-data">
-            <a-card-grid style="width: 50%;">
-              <h3>
-                <b>一言</b>
-              </h3>
-            </a-card-grid>
-            <a-card-grid style="width: 50%;">
-              <h3>
-                <b>工单</b>
-              </h3>
-            </a-card-grid>
-          </a-card>
-        </a-col>
-        <a-col :xm="{span: 0}" :sm="{span: 0}" :md="{span: 6 }">
-          <a-card class="sponsor-card">
-            <img v-lazy="'https://piccdn.freejishu.com/images/2019/07/21/PnY445.png'">
-          </a-card>
-          <a-card
-            hoverable
-          >
-            <img
-              slot="cover"
-              alt="theme"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            >
-            <template slot="actions" class="ant-card-actions">
+      <a-col :xm="{span: 0}" :sm="{span: 0}" :md="{span: 6 }">
+        <a-card class="sponsor-card">
+          <img v-lazy="'https://piccdn.freejishu.com/images/2019/07/21/PnY445.png'">
+        </a-card>
+        <a-card hoverable>
+          <img slot="cover" alt="theme" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png">
+          <template slot="actions" class="ant-card-actions">
               <a-icon type="setting" />
               <a-icon type="edit" />
               <a-icon type="ellipsis" />
-            </template>
+</template>
             <a-card-meta title="a632079" description="满招损，谦受益">
               <a-avatar
                 slot="avatar"
@@ -120,21 +145,41 @@
   </div>
 </template>
 <style lang="less">
+.box {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.gray-font {
+  color: gray;
+  font-weight: bold;
+}
+
+.count-num {
+  color: gray;
+  font-size: 2.4em;
+}
+
 .hitokoto-header {
   max-width: 100%;
 }
-@media screen and (min-width: 768){
+
+@media screen and (min-width: 768) {
   .logo {
     padding-left: 1em;
   }
 }
+
 .dashboard {
   margin-left: 3em;
   margin-right: 3em;
 }
+
 .welcome-message {
   margin-top: 1.75em;
 }
+
 .welcome-status {
   margin-top: 1em;
   display: flex;
@@ -143,17 +188,21 @@
   align-items: center;
   height: 8em;
 }
+
 .welcome-status-child {
   width: 8.5em;
   margin-left: 2em;
 }
+
 .welcome-status-child-text {
   display: inline;
 }
+
 .welcome-status-child-icon {
   font-size: 22px;
   color: #555;
 }
+
 .welcome-status-child-icon-outer {
   border: 1px solid #dedede;
   border-radius: 50%;
@@ -166,25 +215,31 @@
   justify-items: center;
   margin-right: 0.75em;
 }
+
 .welcome-status-child-text-number {
   display: block;
   text-align: center;
   font-size: 1.5em;
 }
+
 .welcome-status-child-text-desc {
   display: block;
   text-align: center;
   font-size: 0.8em;
 }
+
 .user-data .ant-card-head-title {
   font-weight: bold;
 }
+
 .user-data .ant-card-head {
   padding-left: 24px;
 }
+
 .sponsor-card {
   margin-bottom: 2em;
 }
+
 .sponsor-card img {
   width: 100%;
 }
@@ -197,8 +252,42 @@ export default {
       title: '面板首页'
     }
   },
+  data() {
+    return {
+      tmpUsername: ['freejishu', 'a632079', '酷儿', 'haoduor'],
+      welcomeWord: ''
+    }
+  },
   mounted() {
     this.$store.commit('menuSelected/clearCurrent')
+    this.welcomeUpadte()
+  },
+  methods: {
+    welcomeUpadte() {
+      // eslint-disable-next-line
+      const now = new Date().getHours()
+      let timeSolt
+      if (now < 6) {
+        timeSolt = '凌晨好!'
+      } else if (now < 9) {
+        timeSolt = '早上好!'
+      } else if (now < 12) {
+        timeSolt = '上午好!'
+      } else if (now < 14) {
+        timeSolt = '中午好!'
+      } else if (now < 17) {
+        timeSolt = '下午好!'
+      } else if (now < 19) {
+        timeSolt = '傍晚好!'
+      } else if (now < 22) {
+        timeSolt = '晚上好!'
+      } else {
+        timeSolt = '夜里好!'
+      }
+      const l = this.tmpUsername.length
+      const randomk = Math.floor(Math.random() * l + 1)
+      this.welcomeWord = timeSolt + ',  ' + this.tmpUsername[randomk]
+    }
   }
 }
 </script>
