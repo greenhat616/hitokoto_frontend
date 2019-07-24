@@ -167,7 +167,7 @@
           </a-menu>
         </div>
       </a-col>
-      <a-col :xs="24" :sm="24" :md="isAutoSwitch ? {span: 18, offset: 1} : 24" :lg="isAutoSwitch ? {span: 19, offset: 1} : 0">
+      <a-col :xs="{offset: 3, span: 18 }" :sm="{offset: 2, span: 20 }" :md="isAutoSwitch ? {span: 18, offset: 1} : 24" :lg="isAutoSwitch ? {span: 19, offset: 1} : 0">
         <div class="dashboard-layout-content">
           <slot>
             <h1>
