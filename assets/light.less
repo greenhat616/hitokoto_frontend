@@ -9,9 +9,11 @@ body {
 #__nuxt {
   min-height: 100%;
   display: flex;
+  max-width: 100%;
 }
 #__layout {
   flex: 1;
+  max-width: 100%;
 }
 
 .ant-layout {
@@ -137,6 +139,11 @@ a {
   margin: 0 auto 0;
 }
 
+.hitokoto-header-outer {
+  background-color: #fff;
+  box-shadow: 0 2px 8px #f0f1f2;
+}
+
 /**
 * 主页 样式配置
 */
@@ -219,10 +226,8 @@ a {
 .table {
   width: 100%;
   max-width: 100%;
-  table-layout: fixed;
   overflow: scroll;
   word-wrap: break-word;
-  word-break: break-all;
   margin-bottom: 20px;
   // Cells
   > thead,
@@ -333,16 +338,16 @@ a {
   pre {
     white-space: pre;
     overflow: auto;
+    border: 1px solid #e7e7e7;
+    padding: 8px 11px 8px 11px;
+    border-radius: 5px;
+    background-color: #fdfdfd;
   }
 }
 @media screen and (max-width: 768px) {
   .markdown-content {
     img {
       width: 100%;
-    }
-    pre {
-      white-space: pre-wrap;
-      overflow: auto;
     }
   }
 }

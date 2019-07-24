@@ -29,11 +29,15 @@
 
 ## 请求地址
 
+<div class="overflow-table">
+
 | 请求地址 	| 协议 	| 方式 	| QPS 限制 	| 线路 	| 备注 	|
 |:----------------------------:	|:----------------------:	|:----:	|:--------:	|:----:	|:---------------------------------------------:	|
 | v1.hitokoto.cn 	| https; tls=1.1,1.2 	| Any 	| 10 	| 全球 	| 已启用 HSTS， 并已加入 HSTS Preload List 计划 	|
 | international.v1.hitokoto.cn 	| https; tls=1.1,1.2,1.3 	| Any 	| 25 	| 海外 	| 已启用 HSTS， 并已加入 HSTS Preload List 计划 	|
-  
+
+</div>
+
 ![PnYeR8.png](https://piccdn.freejishu.com/images/2019/07/21/PnYeR8.png)
 
 ## 返回格式 (JSON)

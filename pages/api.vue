@@ -18,13 +18,21 @@
     </a-col>
   </a-row>
 </template>
-<style>
+<style lang="less">
 .full-height {
   height: 100%;
 }
 
 .markdown-padding {
   padding: 2em 4em;
+}
+
+.overflow-table {
+  table {
+    margin-bottom: 20px;
+  }
+  overflow: auto;
+  margin-bottom: 20px;
 }
 
 .shadow-background {
