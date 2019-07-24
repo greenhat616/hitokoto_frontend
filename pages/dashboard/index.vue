@@ -139,6 +139,7 @@
   margin-top: 1em;
   display: flex;
   justify-content: right;
+  justify-content: flex-end;
   -webkit-box-align: center;
   align-items: center;
   height: 8em;
