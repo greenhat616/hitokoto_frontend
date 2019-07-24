@@ -16,17 +16,17 @@
           :default-open-keys="menuOpened"
           :selected-keys="menuSelected"
         >
-          <a-sub-menu key="dashboard">
-            <a-icon type="dashboard" />
+          <a-menu-item key="dashboard">
             <nuxt-link to="/dashboard">
-              主页
+              <a-icon type="dashboard" />
+              面板概览
             </nuxt-link>
-          </a-sub-menu>
+          </a-menu-item>
           <a-sub-menu key="sentence">
             <span slot="title">
               <a-icon type="read" />
               <span>
-                一言
+                我的一言
               </span>
             </span>
             <a-menu-item key="sentence-overlook">
@@ -96,17 +96,17 @@
             :default-open-keys="menuOpened"
             :selected-keys="menuSelected"
           >
-            <a-sub-menu key="dashboard">
-              <a-icon type="dashboard" />
+            <a-menu-item key="dashboard">
               <nuxt-link to="/dashboard">
-                主页
+                <a-icon type="dashboard" />
+                面板概览
               </nuxt-link>
-            </a-sub-menu>
+            </a-menu-item>
             <a-sub-menu key="sentence">
               <span slot="title">
                 <a-icon type="read" />
                 <span>
-                  一言
+                  我的一言
                 </span>
               </span>
               <a-menu-item key="sentence-overlook">
