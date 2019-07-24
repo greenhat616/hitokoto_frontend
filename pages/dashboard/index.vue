@@ -121,24 +121,7 @@
           </a-card-grid>
         </a-card>
       </a-col>
-    </a-row>
-    <div class="dashboard-content">
-      <a-row :gutter="{xs: 0, sm: 0, md: 24}">
-        <a-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 18}">
-          <a-card title="用户数据" class="user-data">
-            <a-card-grid style="width: 50%;">
-              <h3>
-                <b>一言</b>
-              </h3>
-            </a-card-grid>
-            <a-card-grid style="width: 50%;">
-              <h3>
-                <b>工单</b>
-              </h3>
-            </a-card-grid>
-          </a-card>
-        </a-col>
-        <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 6 }">
+      <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 6 }">
           <a-card class="sponsor-card">
             <img v-lazy="'https://piccdn.freejishu.com/images/2019/07/21/PnY445.png'">
           </a-card>
@@ -163,7 +146,7 @@
             </a-card-meta>
           </a-card>
         </a-col>
-      </a-row>
+    </a-row>
     </div>
   </div>
 </template>
