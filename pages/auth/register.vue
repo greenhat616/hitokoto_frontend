@@ -170,7 +170,7 @@ export default {
       }
     },
     handleCancel(e) {
-      this.form.setFieldsValue({ 'agreement': false })
+      this.form.setFieldsValue({ agreement: false })
       this.visible = false
     },
     handleOk(e) {
