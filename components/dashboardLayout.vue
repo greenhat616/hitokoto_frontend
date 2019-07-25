@@ -24,16 +24,25 @@
           </a-menu-item>
           <a-sub-menu key="sentence">
             <span slot="title">
-              <a-icon type="read" />
+              <icon-font type="icon-hashtag" />
               <span>
                 我的一言
               </span>
             </span>
             <a-menu-item key="sentence-overlook">
-              状态概览
+              <nuxt-link to="/dashboard/hitokoto">
+                状态概览
+              </nuxt-link>
+            </a-menu-item>
+            <a-menu-item key="sentence-overlook">
+              <nuxt-link to="/dashboard/hitokoto/collection">
+                我的收藏
+              </nuxt-link>
             </a-menu-item>
             <a-menu-item key="sentence-append">
-              提交一言
+              <nuxt-link to="/dashboard/hitokoto/append">
+                添加一言
+              </nuxt-link>
             </a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="ticket">
@@ -44,10 +53,14 @@
               </span>
             </span>
             <a-menu-item key="ticket-list">
-              我的工单
+              <nuxt-link to="/dashboard/ticket">
+                我的工单
+              </nuxt-link>
             </a-menu-item>
             <a-menu-item key="ticket-append">
-              发表工单
+              <nuxt-link to="/dashboard/ticket/create">
+                创建工单
+              </nuxt-link>
             </a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="dev">
@@ -58,13 +71,19 @@
               </span>
             </span>
             <a-menu-item key="accss-management">
-              授权管理
+              <nuxt-link to="/dashboard/dev/management">
+                授权管理
+              </nuxt-link>
             </a-menu-item>
             <a-menu-item key="operate-list">
-              操作记录
+              <nuxt-link to="/dashboard/dev/log">
+                操作记录
+              </nuxt-link>
             </a-menu-item>
             <a-menu-item key="interface-useage">
-              接口说明
+              <nuxt-link to="/dashboard/dev/interface">
+                接口说明
+              </nuxt-link>
             </a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="user">
@@ -75,13 +94,19 @@
               </span>
             </span>
             <a-menu-item key="client-setting">
-              网页设置
+              <nuxt-link to="/dashboard/user/client/setting">
+                网页设置
+              </nuxt-link>
             </a-menu-item>
             <a-menu-item key="user-security">
-              账户安全
+              <nuxt-link to="/dashboard/user/security">
+                账户安全
+              </nuxt-link>
             </a-menu-item>
             <a-menu-item key="user-setting">
-              账户设置
+              <nuxt-link to="/dashboard/user/setting">
+                账户设置
+              </nuxt-link>
             </a-menu-item>
           </a-sub-menu>
         </a-menu>
@@ -104,16 +129,25 @@
             </a-menu-item>
             <a-sub-menu key="sentence">
               <span slot="title">
-                <a-icon type="read" />
+                <icon-font type="icon-hashtag" />
                 <span>
                   我的一言
                 </span>
               </span>
               <a-menu-item key="sentence-overlook">
-                状态概览
+                <nuxt-link to="/dashboard/hitokoto">
+                  状态概览
+                </nuxt-link>
+              </a-menu-item>
+              <a-menu-item key="sentence-overlook">
+                <nuxt-link to="/dashboard/hitokoto/collection">
+                  我的收藏
+                </nuxt-link>
               </a-menu-item>
               <a-menu-item key="sentence-append">
-                提交一言
+                <nuxt-link to="/dashboard/hitokoto/append">
+                  添加一言
+                </nuxt-link>
               </a-menu-item>
             </a-sub-menu>
             <a-sub-menu key="ticket">
@@ -124,10 +158,14 @@
                 </span>
               </span>
               <a-menu-item key="ticket-list">
-                我的工单
+                <nuxt-link to="/dashboard/ticket">
+                  我的工单
+                </nuxt-link>
               </a-menu-item>
               <a-menu-item key="ticket-append">
-                发表工单
+                <nuxt-link to="/dashboard/ticket/create">
+                  创建工单
+                </nuxt-link>
               </a-menu-item>
             </a-sub-menu>
             <a-sub-menu key="dev">
@@ -138,13 +176,19 @@
                 </span>
               </span>
               <a-menu-item key="accss-management">
-                授权管理
+                <nuxt-link to="/dashboard/dev/management">
+                  授权管理
+                </nuxt-link>
               </a-menu-item>
               <a-menu-item key="operate-list">
-                操作记录
+                <nuxt-link to="/dashboard/dev/log">
+                  操作记录
+                </nuxt-link>
               </a-menu-item>
               <a-menu-item key="interface-useage">
-                接口说明
+                <nuxt-link to="/dashboard/dev/interface">
+                  接口说明
+                </nuxt-link>
               </a-menu-item>
             </a-sub-menu>
             <a-sub-menu key="user">
@@ -155,13 +199,19 @@
                 </span>
               </span>
               <a-menu-item key="client-setting">
-                网页设置
+                <nuxt-link to="/dashboard/user/client/setting">
+                  网页设置
+                </nuxt-link>
               </a-menu-item>
               <a-menu-item key="user-security">
-                账户安全
+                <nuxt-link to="/dashboard/user/security">
+                  账户安全
+                </nuxt-link>
               </a-menu-item>
               <a-menu-item key="user-setting">
-                账户设置
+                <nuxt-link to="/dashboard/user/setting">
+                  账户设置
+                </nuxt-link>
               </a-menu-item>
             </a-sub-menu>
           </a-menu>
@@ -186,7 +236,15 @@
 </style>
 
 <script>
+import { Icon } from 'ant-design-vue'
+
+const IconFont = Icon.createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_1315053_91wjjfbpuh6.js'
+})
 export default {
+  components: {
+    IconFont
+  },
   props: {
     menuSelected: {
       required: true,
@@ -204,7 +262,23 @@ export default {
   },
   data() {
     return {
-      drawerOpened: false
+      drawerOpened: false,
+      menuList: [ // 埋坑， 动态生产 Menu
+        {
+          isSubMenu: false,
+          title: '面板概览',
+          href: '/dashboard',
+          key: 'dashboard'
+        },
+        {
+          isSubMenu: true,
+          title: '我的一言',
+          iconType: '',
+          isFontIcon: false,
+          key: 'hitokoto',
+          subMenu: []
+        }
+      ]
     }
   },
   methods: {

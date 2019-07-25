@@ -13,7 +13,9 @@
             <a-list-item-meta>
               <div slot="title">
                 <span class="ticket-list-id">#{{ item.id }}</span>
-                <a class="ticket-list-title" :href="item.target">{{ item.title }}</a>
+                <nuxt-link class="ticket-list-title" :to="'/dashboard/ticket/view/' + item.id">
+                  {{ item.title }}
+                </nuxt-link>
               </div>
             </a-list-item-meta>
             <div class="ticket-list-status">
@@ -39,6 +41,12 @@
   .ticket-list-title {
     font-size: 1.3em;
   }
+  .ticket-list-id {
+    color: #7b7b7b;
+  }
+  .ticket-list-title {
+    color: rgba(0, 0, 0, 0.85)
+  }
   .ticket-list {
     .ant-list-item-meta {
       margin-bottom: 0;
@@ -53,6 +61,11 @@ export default {
   components: {
     dashboardLayout
   },
+  head() {
+    return {
+      title: '我的工单'
+    }
+  },
   data() {
     return {
       menuSelected: ['ticket-list'],
@@ -66,23 +79,19 @@ export default {
       ticketList: [
         {
           id: 1,
-          title: '测试工单 1',
-          target: ''
+          title: '测试工单 1'
         },
         {
           id: 2,
-          title: '测试工单 2',
-          target: ''
+          title: '测试工单 2'
         },
         {
           id: 3,
-          title: '测试工单 3',
-          target: ''
+          title: '测试工单 3'
         },
         {
           id: 4,
-          title: '测试工单 4',
-          target: ''
+          title: '测试工单 4'
         }
       ]
     }
