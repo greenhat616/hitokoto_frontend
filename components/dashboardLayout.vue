@@ -44,7 +44,7 @@
               </span>
             </span>
             <a-menu-item key="ticket-list">
-              工单列表
+              我的工单
             </a-menu-item>
             <a-menu-item key="ticket-append">
               发表工单
@@ -124,7 +124,7 @@
                 </span>
               </span>
               <a-menu-item key="ticket-list">
-                工单列表
+                我的工单
               </a-menu-item>
               <a-menu-item key="ticket-append">
                 发表工单
