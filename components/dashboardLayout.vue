@@ -34,7 +34,7 @@
                 状态概览
               </nuxt-link>
             </a-menu-item>
-            <a-menu-item key="sentence-overlook">
+            <a-menu-item key="sentence-collection">
               <nuxt-link to="/dashboard/hitokoto/collection">
                 我的收藏
               </nuxt-link>
@@ -139,7 +139,7 @@
                   状态概览
                 </nuxt-link>
               </a-menu-item>
-              <a-menu-item key="sentence-overlook">
+              <a-menu-item key="sentence-collection">
                 <nuxt-link to="/dashboard/hitokoto/collection">
                   我的收藏
                 </nuxt-link>
