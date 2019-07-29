@@ -20,7 +20,7 @@
             <a-button :disabled="!hasSelected">
               重置令牌
             </a-button>
-            <a-button :disabled="!hasSelected">
+            <a-button :disabled="!hasSelected" @click="onDelete(selectedRowKeys)">
               删除令牌
             </a-button>
           </div>
@@ -193,6 +193,12 @@ export default {
     },
     onClose() {
       this.visible = false
+    },
+    onDelete(keys) {
+      for (const key of keys) {
+        const accessData = [...this.accessData]
+        this.accessData = accessData.filter(item => item.key !== key)
+      }
     },
     onCellChange(key, dataIndex, value) {
       const accessData = [...this.accessData]
