@@ -47,14 +47,15 @@
         <div class="ticket-content-body">
           <a-list :data-source="ticketData">
             <a-list-item slot="renderItem" slot-scope="item">
-              <a-list-item-meta>
-                <div slot="description" v-html="MD2HTML(item.sourceText)" />
-                <a slot="title">
-                  {{ item.author }}
-                </a>
-                <a-avatar slot="avatar" :src="getGravatarURL(item.email)" />
-              </a-list-item-meta>
-              {{ formatTS(item.commitTS) }}
+              <a-comment
+                :author="item.author"
+                :avatar="getGravatarURL(item.email)"
+              >
+                <div slot="content" v-html="MD2HTML(item.sourceText)" />
+                <a-tooltip slot="datetime" :title="moment(item.commitTS).format('YYYY-MM-DD HH:mm:ss')">
+                  <span>{{ moment(item.commitTS).fromNow() }}</span>
+                </a-tooltip>
+              </a-comment>
             </a-list-item>
             <div slot="header">
               沟通记录
@@ -157,6 +158,8 @@ import md5 from 'js-md5'
 import moment from 'moment'
 import dashboardLayout from '~/components/dashboardLayout.vue'
 
+moment.locale('zh-cn')
+
 export default {
   components: {
     dashboardLayout
@@ -235,7 +238,8 @@ export default {
         e.target.value += paste
         e.preventDefault()
       }
-    }
+    },
+    moment
   }
 }
 </script>
