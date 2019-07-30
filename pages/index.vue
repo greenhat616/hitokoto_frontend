@@ -22,9 +22,6 @@ export default {
   data() {
     return {
     }
-  },
-  beforeCreate: function () {
-    this.$store.commit('menuSelected/updateCurrent', 'home')
   }
 }
 </script>
@@ -40,6 +37,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 
   & > .inner {
     position: relative;

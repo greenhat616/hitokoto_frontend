@@ -206,7 +206,6 @@ export default {
     }
   },
   mounted() {
-    this.$store.commit('menuSelected/clearCurrent')
   },
   methods: {
     calcCNTime(ts) {

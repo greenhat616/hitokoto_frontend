@@ -45,7 +45,6 @@ export default {
   },
   beforeCreate() {
     this.form = this.$form.createForm(this)
-    this.$store.commit('menuSelected/clearCurrent')
   },
   methods: {
     handleSubmit(e) {
