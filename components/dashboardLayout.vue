@@ -93,11 +93,6 @@
                 用户中心
               </span>
             </span>
-            <a-menu-item key="client-setting">
-              <nuxt-link to="/dashboard/user/client/setting">
-                网页设置
-              </nuxt-link>
-            </a-menu-item>
             <a-menu-item key="user-security">
               <nuxt-link to="/dashboard/user/security">
                 账户安全
@@ -198,11 +193,6 @@
                   用户中心
                 </span>
               </span>
-              <a-menu-item key="client-setting">
-                <nuxt-link to="/dashboard/user/client/setting">
-                  网页设置
-                </nuxt-link>
-              </a-menu-item>
               <a-menu-item key="user-security">
                 <nuxt-link to="/dashboard/user/security">
                   账户安全

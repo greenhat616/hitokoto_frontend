@@ -4,9 +4,9 @@
       <a-col :sm="24" :md="{span: 12}">
         <div class="welcome-message">
           <h1>
-            <b>早上好， a632079。</b>
+            <b>{{ calcCNTime(now) }}好， a632079。</b>
           </h1>
-          <p>今日，2019年7月22日，天气晴朗，气温高，注意防暑，欢迎回到一言控制面板。</p>
+          <p>今日，{{ formatTime(now) }}，欢迎回到一言控制面板。</p>
         </div>
       </a-col>
       <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span:12}">
@@ -192,7 +192,14 @@
 </style>
 
 <script>
+import moment from 'moment'
+moment.locale('zh-cn')
 export default {
+  data() {
+    return {
+      now: Date.now()
+    }
+  },
   head() {
     return {
       title: '面板首页'
@@ -200,6 +207,34 @@ export default {
   },
   mounted() {
     this.$store.commit('menuSelected/clearCurrent')
+  },
+  methods: {
+    calcCNTime(ts) {
+      const hour = Number.parseInt(moment(ts).format('H'))
+      if (hour >= 5 && hour < 7) {
+        return '清晨'
+      } else if (hour >= 7 && hour < 11) {
+        return '早上'
+      } else if (hour >= 11 && hour < 13) {
+        return '中午'
+      } else if (hour >= 13 && hour < 17) {
+        return '下午'
+      } else if (hour >= 17 && hour < 19) {
+        return '傍晚'
+      } else if (hour >= 19 && hour < 22) {
+        return '晚上'
+      } else if (hour >= 22 && hour < 0) {
+        return '深夜'
+      } else if (hour >= 0 && hour < 2) {
+        return '凌晨'
+      } else {
+        return '深夜'
+      }
+    },
+    formatTime(ts) {
+      const m = moment(ts)
+      return m.format('YYYY年MM月DD日')
+    }
   }
 }
 </script>
