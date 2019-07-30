@@ -8,7 +8,7 @@ export default {
     return {
     }
   },
-  mounted: function () {
+  beforeCreate: function () {
     this.$store.commit('menuSelected/updateCurrent', 'home')
   }
 }

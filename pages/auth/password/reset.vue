@@ -38,9 +38,6 @@ export default {
     return {
     }
   },
-  mounted() {
-    this.$store.commit('menuSelected/clearCurrent')
-  },
   head() {
     return {
       title: '重置密码'
@@ -48,6 +45,7 @@ export default {
   },
   beforeCreate() {
     this.form = this.$form.createForm(this)
+    this.$store.commit('menuSelected/clearCurrent')
   },
   methods: {
     handleSubmit(e) {

@@ -94,7 +94,6 @@ export default {
       }
   },
   mounted: function () {
-    this.$store.commit('menuSelected/updateCurrent', 'about')
     const _this = this
     this.$axios.get('/about.md')
       .then(response => {
@@ -107,6 +106,9 @@ export default {
         _this.content = '<h1><b>获取接口内容失败。 请刷新页面重试。</b></h1>'
       })
     window.console.info('飘飘喵 prprpr')
+  },
+  beforeCreate() {
+    this.$store.commit('menuSelected/updateCurrent', 'about')
   },
   head() {
     return {

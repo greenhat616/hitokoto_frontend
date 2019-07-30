@@ -118,9 +118,6 @@ export default {
       agreementMarkDown: `# 测试文本`
     }
   },
-  mounted() {
-    this.$store.commit('menuSelected/clearCurrent')
-  },
   head() {
     return {
       title: '注册账户'
@@ -128,6 +125,7 @@ export default {
   },
   beforeCreate() {
     this.form = this.$form.createForm(this)
+    this.$store.commit('menuSelected/clearCurrent')
   },
   methods: {
     handleSubmit(e) {

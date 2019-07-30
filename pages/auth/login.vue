@@ -83,9 +83,6 @@ export default {
       avatar: 'https://cdn.v2ex.com/gravatar/d41d8cd98f00b204e9800998ecf8427e?d=mp&f=y&s=500'
     }
   },
-  mounted() {
-    this.$store.commit('menuSelected/updateCurrent', 'login')
-  },
   head() {
     return {
       title: '账户登录'
@@ -93,6 +90,7 @@ export default {
   },
   beforeCreate() {
     this.form = this.$form.createForm(this)
+    this.$store.commit('menuSelected/updateCurrent', 'login')
   },
   methods: {
     goRegister() {
