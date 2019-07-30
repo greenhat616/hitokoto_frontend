@@ -95,6 +95,11 @@ export default {
       data
     }
   },
+  head() {
+    return {
+      title: '操作日记'
+    }
+  },
   methods: {
     viewResult(resultId) {
 

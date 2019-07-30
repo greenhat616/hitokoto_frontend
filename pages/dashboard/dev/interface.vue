@@ -37,6 +37,11 @@ export default {
       content: ''
     }
   },
+  head() {
+    return {
+      title: '接口说明'
+    }
+  },
   mounted() {
     const _this = this
     this.$axios.get('/dev-interface.md')

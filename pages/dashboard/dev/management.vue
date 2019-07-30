@@ -178,6 +178,11 @@ export default {
       selectedRowKeys: []
     }
   },
+  head() {
+    return {
+      title: '授权管理'
+    }
+  },
   computed: {
     hasSelected() {
       return this.selectedRowKeys.length > 0
