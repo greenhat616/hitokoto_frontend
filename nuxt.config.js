@@ -42,7 +42,7 @@ export default {
    */
   loading: {
     color: '#1890ff',
-    height: '3px'
+    height: '2px'
   },
   /*
    ** Global CSS

@@ -4,7 +4,7 @@
       授权管理
     </h1>
     <a-row>
-      <a-col :md="20" :lg="29">
+      <a-col :md="20" :lg="20">
         <a-alert type="warning" banner>
           <div slot="message">
             <b>请注意：</b> 如果你不知道这个是做什么的， 请离开本页面。 该页面仅推荐开发者使用。<br>
