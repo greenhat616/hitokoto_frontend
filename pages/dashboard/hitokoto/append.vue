@@ -5,11 +5,12 @@
         <a-form :form="form">
           <h2>提交新一言</h2>
           <a-form-item label="一言" :wrapper-col="{ span: 10 }" :label-col="{ span: 3 }">
-            <a-input
+            <a-textarea
               v-decorator="[
                 'hitokoto',
                 {rules: [{ required: true, message: '请输入一言' }]}
               ]"
+              :rows="3"
               placeholder="一言(30字左右最佳,建议不要超过50字)"
             />
           </a-form-item>
@@ -55,7 +56,7 @@
             >
               <a-button
                 type="primary"
-                html-type="提交"
+                html-type="submit"
               >
                 提交
               </a-button>
