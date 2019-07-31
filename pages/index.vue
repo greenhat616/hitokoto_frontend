@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .hitokoto-home {
   position: fixed;
   top: 0;

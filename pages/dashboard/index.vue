@@ -1,5 +1,5 @@
 <template>
-  <dashboard-layout :menu-selected="menuSelected" :menu-opened="menuOpened" :is-auto-switch="false">
+  <dashboard-layout v-show="loaded" :menu-selected="menuSelected" :menu-opened="menuOpened" :is-auto-switch="false">
     <div class="dashboard">
       <a-row>
         <a-col :sm="24" :md="{span: 12}">
@@ -181,10 +181,6 @@
   </dashboard-layout>
 </template>
 <style lang="less">
-.ant-layout {
-  background: #f0f2f5;
-}
-
 .box {
   display: flex;
   justify-content: space-around;
@@ -298,7 +294,8 @@ export default {
     return {
       now: Date.now(),
       menuSelected: ['dashboard'],
-      menuOpened: ['']
+      menuOpened: [''],
+      loaded: false
     }
   },
   head() {
@@ -307,6 +304,7 @@ export default {
     }
   },
   mounted() {
+    this.loaded = true
   },
   methods: {
     calcCNTime(ts) {

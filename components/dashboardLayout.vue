@@ -233,11 +233,6 @@
     </a-row>
   </div>
 </template>
-<style>
-.ant-layout {
-  background: #fff;
-}
-</style>
 
 <script>
 import { Icon } from 'ant-design-vue'
