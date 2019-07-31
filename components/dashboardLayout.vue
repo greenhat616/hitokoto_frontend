@@ -103,8 +103,8 @@
               </nuxt-link>
             </a-menu-item>
             <a-menu-item key="user-setting">
-              <nuxt-link to="/dashboard/user/setting">
-                账户设置
+              <nuxt-link to="/dashboard/user/preference">
+                偏好设置
               </nuxt-link>
             </a-menu-item>
           </a-sub-menu>
@@ -208,8 +208,8 @@
                 </nuxt-link>
               </a-menu-item>
               <a-menu-item key="user-setting">
-                <nuxt-link to="/dashboard/user/setting">
-                  账户设置
+                <nuxt-link to="/dashboard/user/preference">
+                  偏好设置
                 </nuxt-link>
               </a-menu-item>
             </a-sub-menu>
@@ -263,7 +263,7 @@ export default {
     return {
       drawerOpened: false,
       menuList: [
-        // 埋坑， 动态生产 Menu
+        // TODO: 动态生产 Menu
         {
           isSubMenu: false,
           title: '面板概览',
