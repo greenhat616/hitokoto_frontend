@@ -34,6 +34,10 @@ export default {
     {
       rel: 'stylesheet',
       href: 'https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/solarized-dark.min.css'
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.loli.net/css?family=Fira+Code&display=swap&subset=latin-ext'
     }
     ]
   },
