@@ -102,7 +102,7 @@
                 账户安全
               </nuxt-link>
             </a-menu-item>
-            <a-menu-item key="user-setting">
+            <a-menu-item key="user-preference">
               <nuxt-link to="/dashboard/user/preference">
                 偏好设置
               </nuxt-link>
@@ -207,7 +207,7 @@
                   账户安全
                 </nuxt-link>
               </a-menu-item>
-              <a-menu-item key="user-setting">
+              <a-menu-item key="user-preference">
                 <nuxt-link to="/dashboard/user/preference">
                   偏好设置
                 </nuxt-link>
