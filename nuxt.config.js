@@ -69,7 +69,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     '@nuxtjs/eslint-module',
     '@nuxtjs/auth',
     'nuxt-vuex-localstorage'
@@ -91,9 +91,9 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  manifest: {
-    crossorigin: 'use-credentials'
-  },
+  // manifest: {
+  //   crossorigin: 'use-credentials'
+  // },
   /*
    ** Build configuration
    */
