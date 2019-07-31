@@ -18,26 +18,26 @@
           </a-row>
         </a-col>
         <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 11, offset: 9}">
-          <a-menu mode="horizontal" :selected-keys="getCurrent" class="menu-site">
-            <a-menu-item key="home">
+          <a-menu mode="horizontal" :selected-keys="[selectedKey]" class="menu-site">
+            <a-menu-item key="/">
               <nuxt-link to="/">
                 <a-icon type="home" />
                 首页
               </nuxt-link>
             </a-menu-item>
-            <a-menu-item key="api">
+            <a-menu-item key="/api">
               <nuxt-link to="/api">
                 <a-icon type="api" />
                 接口说明
               </nuxt-link>
             </a-menu-item>
-            <a-menu-item key="about">
+            <a-menu-item key="/about">
               <nuxt-link to="/about">
                 <a-icon type="global" />
                 关于我们
               </nuxt-link>
             </a-menu-item>
-            <a-menu-item key="login">
+            <a-menu-item key="/auth/login">
               <nuxt-link to="/auth/login">
                 <a-icon type="user" />
                 用户登录
@@ -48,26 +48,26 @@
       </a-row>
     </a-layout-header>
     <a-drawer wrap-class-name="hitokoto-header-drawer" placement="right" :closable="false" :visible="menu" @close="onClose">
-      <a-menu mode="vertical" :selected-keys="getCurrent">
-        <a-menu-item key="home">
+      <a-menu mode="vertical" :selected-keys="[selectedKey]">
+        <a-menu-item key="/">
           <nuxt-link to="/">
             <a-icon type="home" />
             首页
           </nuxt-link>
         </a-menu-item>
-        <a-menu-item key="api">
+        <a-menu-item key="/api">
           <nuxt-link to="/api">
             <a-icon type="api" />
             接口说明
           </nuxt-link>
         </a-menu-item>
-        <a-menu-item key="about">
-          <nuxt-link to="/api">
+        <a-menu-item key="/about">
+          <nuxt-link to="/about">
             <a-icon type="global" />
             关于我们
           </nuxt-link>
         </a-menu-item>
-        <a-menu-item key="login">
+        <a-menu-item key="/auth/login">
           <nuxt-link to="/auth/login">
             <a-icon type="user" />
             用户登录
@@ -89,13 +89,17 @@ export default {
   },
   data() {
     return {
-      menu: false
+      menu: false,
+      selectedKey: ''
     }
   },
-  computed: {
-    getCurrent: function () {
-      return this.$store.state.menuSelected.current
+  watch: {
+    '$route'(to, from) {
+      this.selectedKey = this.$route.path
     }
+  },
+  created() {
+    this.selectedKey = this.$route.path
   },
   methods: {
     toggleMenu() {

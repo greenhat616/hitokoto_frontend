@@ -1,154 +1,184 @@
 <template>
-<div class="dashboard">
-  <a-row>
-    <a-col :sm="24" :md="{span: 12}">
-      <div class="welcome-message">
-        <h1>
-          <b>{{ welcomeWord }}</b>
-        </h1>
-        <p>今日，2019年7月22日，天气晴朗，气温高，注意防暑，欢迎回到一言控制面板。</p>
-      </div>
-    </a-col>
-    <a-col :xm="{span: 0}" :sm="{span: 0}" :md="{span:12}">
-      <div class="welcome-status">
-        <div class="welcome-status-child">
-          <a-row>
-            <a-col :md="10">
-              <div class="welcome-status-child-icon-outer">
-                <a-icon class="welcome-status-child-icon" type="heart" theme="filled" style="color: hotpink" />
-              </div>
-            </a-col>
-            <a-col :md="14">
-              <div class="welcome-status-child-text">
-                <span class="welcome-status-child-text-number">0</span>
-                <span class="welcome-status-child-text-desc">已收藏句子</span>
-              </div>
-            </a-col>
-          </a-row>
-        </div>
-        <div class="welcome-status-child">
-          <a-row>
-            <a-col :md="10">
-              <div class="welcome-status-child-icon-outer">
-                <a-icon class="welcome-status-child-icon" type="read" theme="filled" style="color: cornflowerblue" />
-              </div>
-            </a-col>
-            <a-col :md="14">
-              <div class="welcome-status-child-text">
-                <span class="welcome-status-child-text-number">0</span>
-                <span class="welcome-status-child-text-desc">待处理句子</span>
-              </div>
-            </a-col>
-          </a-row>
-        </div>
-        <div class="welcome-status-child">
-          <a-row>
-            <a-col :md="10">
-              <div class="welcome-status-child-icon-outer">
-                <a-icon class="welcome-status-child-icon" type="profile" theme="filled" style="color: orange" />
-              </div>
-            </a-col>
-            <a-col :md="14">
-              <div class="welcome-status-child-text">
-                <span class="welcome-status-child-text-number">0</span>
-                <span class="welcome-status-child-text-desc">待处理工单</span>
-              </div>
-            </a-col>
-          </a-row>
-        </div>
-      </div>
-    </a-col>
-  </a-row>
-  <div class="dashboard-content">
-    <a-row :gutter="{xm: 0, sm: 0, md: 24}">
-      <a-col :xm="{span: 24}" :sm="{span: 24}" :md="{span: 18}">
-        <a-card title="用户数据" class="user-data">
-          <a-card-grid style="width: 50%;">
-            <h3>
-              <b>一言</b>
-            </h3>
-            <a-row type="flex" justify="space-around" align="middle">
-              <a-col>
-                <div class="gray-font">已通过</div>
-                <div class="box">
-                  <div class="count-num">123</div>
-                </div>
-              </a-col>
-              <a-col>
-                <div class="gray-font">带审核</div>
-                <div class="box">
-                  <div class="count-num">456</div>
-                </div>
-              </a-col>
-              <a-col>
-                <div class="gray-font">已驳回</div>
-                <div class="box">
-                  <div class="count-num">789</div>
-                </div>
-              </a-col>
-            </a-row>
-          </a-card-grid>
-          <a-card-grid style="width: 50%;">
-            <h3>
-              <b>工单</b>
-            </h3>
-            <a-row type="flex" justify="space-around" align="middle">
-              <a-col>
-                <div class="gray-font">全部</div>
-                <div class="box">
-                  <div class="count-num">123</div>
-                </div>
-              </a-col>
-              <a-col>
-                <div class="gray-font">待处理</div>
-                <div class="box">
-                  <div class="count-num">456</div>
-                </div>
-              </a-col>
-              <a-col>
-                <div class="gray-font">待回复</div>
-                <div class="box">
-                  <div class="count-num">789</div>
-                </div>
-              </a-col>
-              <a-col>
-                <div class="gray-font">已完成</div>
-                <div class="box">
-                  <div class="count-num">100</div>
-                </div>
-              </a-col>
-            </a-row>
-          </a-card-grid>
-        </a-card>
-      </a-col>
-      <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 6 }">
-          <a-card class="sponsor-card">
-            <img v-lazy="'https://piccdn.freejishu.com/images/2019/07/21/PnY445.png'">
-          </a-card>
-          <a-card
-            hoverable
-          >
-            <img
-              slot="cover"
-              alt="theme"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            >
-            <template slot="actions" class="ant-card-actions">
-              <a-icon type="setting" />
-              <a-icon type="edit" />
-              <a-icon type="ellipsis" />
-            </template>
-            <a-card-meta title="a632079" description="满招损，谦受益">
-              <a-avatar
-                slot="avatar"
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </a-card-meta>
-          </a-card>
+  <dashboard-layout v-show="loaded" :menu-selected="menuSelected" :menu-opened="menuOpened" :is-auto-switch="false">
+    <div class="dashboard">
+      <a-row>
+        <a-col :sm="24" :md="{span: 12}">
+          <div class="welcome-message">
+            <h1>
+              <b>{{ calcCNTime(now) }}好， a632079。</b>
+            </h1>
+            <p>今日，{{ formatTime(now) }}，欢迎回到一言控制面板。</p>
+          </div>
         </a-col>
-    </a-row>
+        <a-col :xm="{span: 0}" :sm="{span: 0}" :md="{span:12}">
+          <div class="welcome-status">
+            <div class="welcome-status-child">
+              <a-row>
+                <a-col :md="10">
+                  <div class="welcome-status-child-icon-outer">
+                    <a-icon class="welcome-status-child-icon" type="heart" theme="filled" style="color: hotpink" />
+                  </div>
+                </a-col>
+                <a-col :md="14">
+                  <div class="welcome-status-child-text">
+                    <span class="welcome-status-child-text-number">0</span>
+                    <span class="welcome-status-child-text-desc">已收藏句子</span>
+                  </div>
+                </a-col>
+              </a-row>
+            </div>
+            <div class="welcome-status-child">
+              <a-row>
+                <a-col :md="10">
+                  <div class="welcome-status-child-icon-outer">
+                    <a-icon class="welcome-status-child-icon" type="read" theme="filled" style="color: cornflowerblue" />
+                  </div>
+                </a-col>
+                <a-col :md="14">
+                  <div class="welcome-status-child-text">
+                    <span class="welcome-status-child-text-number">0</span>
+                    <span class="welcome-status-child-text-desc">待处理句子</span>
+                  </div>
+                </a-col>
+              </a-row>
+            </div>
+            <div class="welcome-status-child">
+              <a-row>
+                <a-col :md="10">
+                  <div class="welcome-status-child-icon-outer">
+                    <a-icon class="welcome-status-child-icon" type="profile" theme="filled" style="color: orange" />
+                  </div>
+                </a-col>
+                <a-col :md="14">
+                  <div class="welcome-status-child-text">
+                    <span class="welcome-status-child-text-number">0</span>
+                    <span class="welcome-status-child-text-desc">待处理工单</span>
+                  </div>
+                </a-col>
+              </a-row>
+            </div>
+          </div>
+        </a-col>
+      </a-row>
+      <div class="dashboard-content">
+        <a-row :gutter="{xm: 0, sm: 0, md: 24}">
+          <a-col :xm="{span: 24}" :sm="{span: 24}" :md="{span: 18}">
+            <a-card title="用户数据" class="user-data">
+              <a-card-grid style="width: 50%;">
+                <h3>
+                  <b>一言</b>
+                </h3>
+                <a-row type="flex" justify="space-around" align="middle">
+                  <a-col>
+                    <div class="gray-font">
+                      已通过
+                    </div>
+                    <div class="box">
+                      <div class="count-num">
+                        123
+                      </div>
+                    </div>
+                  </a-col>
+                  <a-col>
+                    <div class="gray-font">
+                      待审核
+                    </div>
+                    <div class="box">
+                      <div class="count-num">
+                        456
+                      </div>
+                    </div>
+                  </a-col>
+                  <a-col>
+                    <div class="gray-font">
+                      已驳回
+                    </div>
+                    <div class="box">
+                      <div class="count-num">
+                        789
+                      </div>
+                    </div>
+                  </a-col>
+                </a-row>
+              </a-card-grid>
+              <a-card-grid style="width: 50%;">
+                <h3>
+                  <b>工单</b>
+                </h3>
+                <a-row type="flex" justify="space-around" align="middle">
+                  <a-col>
+                    <div class="gray-font">
+                      全部
+                    </div>
+                    <div class="box">
+                      <div class="count-num">
+                        123
+                      </div>
+                    </div>
+                  </a-col>
+                  <a-col>
+                    <div class="gray-font">
+                      待处理
+                    </div>
+                    <div class="box">
+                      <div class="count-num">
+                        456
+                      </div>
+                    </div>
+                  </a-col>
+                  <a-col>
+                    <div class="gray-font">
+                      待回复
+                    </div>
+                    <div class="box">
+                      <div class="count-num">
+                        789
+                      </div>
+                    </div>
+                  </a-col>
+                  <a-col>
+                    <div class="gray-font">
+                      已完成
+                    </div>
+                    <div class="box">
+                      <div class="count-num">
+                        100
+                      </div>
+                    </div>
+                  </a-col>
+                </a-row>
+              </a-card-grid>
+            </a-card>
+          </a-col>
+          <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 6 }">
+            <a-card class="sponsor-card">
+              <img v-lazy="'https://piccdn.freejishu.com/images/2019/07/21/PnY445.png'">
+            </a-card>
+            <a-card
+              hoverable
+            >
+              <img
+                slot="cover"
+                alt="theme"
+                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+              >
+              <template slot="actions" class="ant-card-actions">
+                <a-icon type="setting" />
+                <a-icon type="edit" />
+                <a-icon type="ellipsis" />
+              </template>
+              <a-card-meta title="a632079" description="满招损，谦受益">
+                <a-avatar
+                  slot="avatar"
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </a-card-meta>
+            </a-card>
+          </a-col>
+        </a-row>
+      </div>
     </div>
-  </div>
+  </dashboard-layout>
 </template>
 <style lang="less">
 .box {
@@ -253,47 +283,55 @@
 </style>
 
 <script>
+import moment from 'moment'
+import dashboardLayout from '~/components/dashboardLayout.vue'
+moment.locale('zh-cn')
 export default {
+  components: {
+    dashboardLayout
+  },
+  data() {
+    return {
+      now: Date.now(),
+      menuSelected: ['dashboard'],
+      menuOpened: [''],
+      loaded: false
+    }
+  },
   head() {
     return {
       title: '面板首页'
     }
   },
-  data() {
-    return {
-      tmpUsername: ['freejishu', 'a632079', '酷儿', 'haoduor'],
-      welcomeWord: ''
-    }
-  },
   mounted() {
-    this.$store.commit('menuSelected/clearCurrent')
-    this.welcomeUpadte()
+    this.loaded = true
   },
   methods: {
-    welcomeUpadte() {
-      // eslint-disable-next-line
-      const now = new Date().getHours()
-      let timeSolt
-      if (now < 6) {
-        timeSolt = '凌晨好!'
-      } else if (now < 9) {
-        timeSolt = '早上好!'
-      } else if (now < 12) {
-        timeSolt = '上午好!'
-      } else if (now < 14) {
-        timeSolt = '中午好!'
-      } else if (now < 17) {
-        timeSolt = '下午好!'
-      } else if (now < 19) {
-        timeSolt = '傍晚好!'
-      } else if (now < 22) {
-        timeSolt = '晚上好!'
+    calcCNTime(ts) {
+      const hour = Number.parseInt(moment(ts).format('H'))
+      if (hour >= 5 && hour < 7) {
+        return '清晨'
+      } else if (hour >= 7 && hour < 11) {
+        return '早上'
+      } else if (hour >= 11 && hour < 13) {
+        return '中午'
+      } else if (hour >= 13 && hour < 17) {
+        return '下午'
+      } else if (hour >= 17 && hour < 19) {
+        return '傍晚'
+      } else if (hour >= 19 && hour < 22) {
+        return '晚上'
+      } else if (hour >= 22 && hour < 0) {
+        return '深夜'
+      } else if (hour >= 0 && hour < 2) {
+        return '凌晨'
       } else {
-        timeSolt = '夜里好!'
+        return '深夜'
       }
-      const l = this.tmpUsername.length
-      const randomk = Math.floor(Math.random() * l + 1)
-      this.welcomeWord = timeSolt + ',  ' + this.tmpUsername[randomk]
+    },
+    formatTime(ts) {
+      const m = moment(ts)
+      return m.format('YYYY年MM月DD日')
     }
   }
 }

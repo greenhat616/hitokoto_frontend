@@ -22,7 +22,7 @@
             mode="horizontal"
             style="float: right;"
             class="home-menu-site"
-            :selected-keys="getCurrent"
+            :selected-keys="['home']"
           >
             <a-menu-item key="home">
               <nuxt-link to="/">
@@ -49,7 +49,7 @@
       </a-row>
     </a-layout-header>
     <a-drawer placement="right" :closable="false" :visible="menu" wrap-class-name="hitokoto-header-drawer" @close="onClose">
-      <a-menu :selected-keys="getCurrent" mode="vertical">
+      <a-menu :selected-keys="['home']" mode="vertical">
         <a-menu-item key="home">
           <nuxt-link to="/">
             <a-icon type="home" />首页
@@ -87,11 +87,6 @@ export default {
   data() {
     return {
       menu: false
-    }
-  },
-  computed: {
-    getCurrent: function () {
-      return this.$store.state.menuSelected.current
     }
   },
   methods: {

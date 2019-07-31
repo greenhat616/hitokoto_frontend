@@ -80,11 +80,8 @@ export default {
   },
   data() {
     return {
-      avatar: 'https://cdn.v2ex.com/gravatar/d41d8cd98f00b204e9800998ecf8427e?d=mp&f=y&s=500'
+      avatar: ''
     }
-  },
-  mounted() {
-    this.$store.commit('menuSelected/updateCurrent', 'login')
   },
   head() {
     return {
@@ -114,9 +111,16 @@ export default {
       })
     },
     mailOnBlur() {
-      // this.avatar = `https://cdn.v2ex.com/gravatar/${md5(val)}?d=mp&s=500&ts=${Date.now()}`
       const email = this.form.getFieldValue('email') || ''
-      this.avatar = `https://cdn.v2ex.com/gravatar/${md5(email)}?d=mp&s=500&ts=${Date.now()}`
+      if (email.trim() === '') {
+        this.avatar = ''
+        return
+      }
+
+      const newAvatar = `https://cdn.v2ex.com/gravatar/${md5(email)}?d=mp&s=500`
+      if (newAvatar !== this.avatar) {
+        this.avatar = newAvatar
+      }
     }
   }
 }

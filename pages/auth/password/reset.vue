@@ -38,9 +38,6 @@ export default {
     return {
     }
   },
-  mounted() {
-    this.$store.commit('menuSelected/clearCurrent')
-  },
   head() {
     return {
       title: '重置密码'

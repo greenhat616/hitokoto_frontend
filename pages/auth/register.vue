@@ -118,9 +118,6 @@ export default {
       agreementMarkDown: `# 测试文本`
     }
   },
-  mounted() {
-    this.$store.commit('menuSelected/clearCurrent')
-  },
   head() {
     return {
       title: '注册账户'

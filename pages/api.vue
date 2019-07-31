@@ -53,9 +53,7 @@ export default {
       requestNumber: 0
     }
   },
-
   mounted: function () {
-    this.$store.commit('menuSelected/updateCurrent', 'api')
     const _this = this
     this.$axios.get('/api.md')
       .then(response => {
@@ -63,7 +61,7 @@ export default {
         _this.content = _this.marked(response.data)
       })
       .catch(e => {
-        console.error(e)
+        window.console.error(e)
         _this.isLoaded = true
         _this.content = '<h1><b>获取接口内容失败。 请刷新页面重试。</b></h1>'
       })
