@@ -1,7 +1,7 @@
 <template>
-  <div style="margin-top:10em;">
+  <div>
     <a-row>
-      <a-col :md="{span: 10, offset: 7}" :lg="{span: 8, offset: 8}" :xl="{span: 6, offset: 9}" >
+      <a-col :md="{span: 10, offset: 7}" :lg="{span: 8, offset: 8}" :xl="{span: 6, offset: 9}" style="margin-top: 10.5em">
         <a-card>
           <login-avatar
             :avatar="avatar"
@@ -50,10 +50,18 @@
                     initialValue: true,
                   }
                 ]"
-              >保持登录状态</a-checkbox>
-              <a class="login-form-forgot" href>重置密码</a>
-              <a-button type="primary" html-type="submit" class="login-form-button" block>登录</a-button>
-              <a-button block>注册</a-button>
+              >
+                保持登录状态
+              </a-checkbox>
+              <nuxt-link class="login-form-forgot" to="/auth/password/reset">
+                重置密码
+              </nuxt-link>
+              <a-button type="primary" html-type="submit" class="login-form-button" block>
+                登录
+              </a-button>
+              <a-button block @click="goRegister">
+                注册
+              </a-button>
             </a-form-item>
           </a-form>
         </a-card>
@@ -72,7 +80,7 @@ export default {
   },
   data() {
     return {
-      avatar: 'https://cdn.v2ex.com/gravatar/d41d8cd98f00b204e9800998ecf8427e?d=mp&f=y&s=500'
+      avatar: ''
     }
   },
   head() {
@@ -84,6 +92,9 @@ export default {
     this.form = this.$form.createForm(this)
   },
   methods: {
+    goRegister() {
+      this.$router.push('/auth/register')
+    },
     handleSubmit(e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
@@ -100,9 +111,16 @@ export default {
       })
     },
     mailOnBlur() {
-      // this.avatar = `https://cdn.v2ex.com/gravatar/${md5(val)}?d=mp&s=500&ts=${Date.now()}`
       const email = this.form.getFieldValue('email') || ''
-      this.avatar = `https://cdn.v2ex.com/gravatar/${md5(email)}?d=mp&s=500&ts=${Date.now()}`
+      if (email.trim() === '') {
+        this.avatar = ''
+        return
+      }
+
+      const newAvatar = `https://cdn.v2ex.com/gravatar/${md5(email)}?d=mp&s=500`
+      if (newAvatar !== this.avatar) {
+        this.avatar = newAvatar
+      }
     }
   }
 }

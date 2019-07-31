@@ -1,91 +1,71 @@
 <template>
-  <a-layout>
-    <a-layout-header>
-      <a-row>
-        <a-col :xs="{span: 12, offset: 6}" :sm="{span: 6, offset: 9}" :md="{span:4, offset: 0}">
-          <div class="logo">
-            <hitokoto-icon :style="{fontSize: '3em'}" />
-            <span class="big-font">Hitokoto</span>
-          </div>
-        </a-col>
-        <a-col :xs="{span:4, offset: 2}" :sm="{span: 4, offset: 5}" :md="{span: 0}">
-          <a-button @click="toggleMenu" style="margin-bottom: 16px">
-            <a-icon type="bars" />
-          </a-button>
-        </a-col>
-        <a-col :xs="{span: 0}" :sm="{span: 0}" :md="{span: 11, offset: 9}">
-          <a-menu mode="horizontal" v-model="current" style="float: right;">
-            <a-menu-item key="home">
-              <a-icon type="home" />首页
-            </a-menu-item>
-            <a-menu-item key="api">
-              <a-icon type="api" />接口说明
-            </a-menu-item>
-            <a-menu-item key="about">
-              <a-icon type="global" />接口说明
-            </a-menu-item>
-            <a-sub-menu>
-              <span slot="title">
-                <a-avatar icon="user" />游客
-                <a-icon type="down" />
-              </span>
-              <a-menu-item key="login">登录</a-menu-item>
-              <a-menu-item key="register">注册</a-menu-item>
-            </a-sub-menu>
-          </a-menu>
-        </a-col>
-      </a-row>
-    </a-layout-header>
-    <a-drawer placement="right" :closable="false" @close="onClose" :visible="menu" wrapClassName="hitokoto-header">
-      <a-menu mode="inline" v-model="current">
-        <a-menu-item key="home">
-          <a-icon type="home" />首页
-        </a-menu-item>
-        <a-menu-item key="api">
-          <a-icon type="api" />接口说明
-        </a-menu-item>
-        <a-menu-item key="about">
-          <a-icon type="global" />接口说明
-        </a-menu-item>
-        <a-sub-menu>
-          <span slot="title">
-            <a-avatar icon="user" /> 游客
-          </span>
-          <a-menu-item key="login">登录</a-menu-item>
-          <a-menu-item key="register">注册</a-menu-item>
-        </a-sub-menu>
-      </a-menu>
-    </a-drawer>
-  </a-layout>
+  <div class="hitokoto-home">
+    <div class="inner">
+      <div class="exhibition">
+        <p class="hitokoto">
+          忘记一个人，并非不再想起，而是偶尔想起，心中却不再有波澜。
+        </p>
+        <p class="from">
+          <i>——</i> 九ちのセカィ
+        </p>
+      </div>
+      <div class="action-box">
+        &nbsp;
+      </div>
+    </div>
+  </div>
 </template>
-<style>
-</style>
-<script>
-import HitokotoIcon from '~/components/HitokotoIcon.vue'
 
+<script>
 export default {
-  props: ['header'],
-  components: {
-    HitokotoIcon
-  },
+  layout: 'home',
   data() {
     return {
-      current: ['home'],
-      menu: false
     }
   },
-  methods: {
-    toggleMenu() {
-      this.menu = !this.menu
-    },
-    onClose() {
-      this.menu = false
-    }
+  mounted: function () {
   }
 }
 </script>
-<style>
-  .hitokoto-header .ant-drawer-body {
-    padding: 0;
+
+<style lang="less" scoped>
+.hitokoto-home {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  & > .inner {
+    position: relative;
+    pointer-events: all;
   }
+
+  .exhibition {
+    padding: 10px 20px;
+
+    & > * {
+      font-family: "Microsoft JhengHei", "Source Han Serif SC", "Source Han Serif", 'source-han-serif-sc', '宋体', 'SimSun', '华文细黑', 'STXihei', serif;
+    }
+
+    .hitokoto {
+      display: block;
+      color: black;
+      font-size: 2.3em;
+      line-height: 2;
+      font-weight: 600;
+    }
+
+    .from {
+      display: block;
+      text-align: right;
+      font-size: 1.4em;
+    }
+  }
+}
 </style>
