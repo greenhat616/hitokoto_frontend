@@ -107,9 +107,6 @@ export default {
       })
     window.console.info('飘飘喵 prprpr')
   },
-  beforeCreate() {
-    this.$store.commit('menuSelected/updateCurrent', 'about')
-  },
   head() {
     return {
       title: '关于我们'

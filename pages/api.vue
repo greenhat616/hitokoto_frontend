@@ -53,9 +53,6 @@ export default {
       requestNumber: 0
     }
   },
-  beforeCreate() {
-    this.$store.commit('menuSelected/updateCurrent', 'api')
-  },
   mounted: function () {
     const _this = this
     this.$axios.get('/api.md')
