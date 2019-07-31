@@ -50,7 +50,11 @@
 import dashboardLayout from '~/components/dashboardLayout.vue'
 
 function hasErrors(fieldsError) {
-  return Object.keys(fieldsError).some(field => fieldsError[field])
+  if (process.client) {
+    window.console.log(this.verificationForm.getFieldsError())
+    return Object.keys(fieldsError).some(field => fieldsError[field])
+  }
+  return true
 }
 
 export default {
@@ -63,6 +67,7 @@ export default {
       menuOpened: ['user'],
       verificationForm: this.$form.createForm(this),
       verificationLoading: false,
+      isNotifacation: false,
       hasErrors
     }
   },
@@ -79,12 +84,15 @@ export default {
       const now = Date.now()
       const verificationTS = this.verificationTS
       const result = !!((now - verificationTS) < 1000 * 60 * 20) // 20 分钟内有效
-      if (!result && verificationTS !== 0) {
-        this.$notification.open({
-          message: '需要重新验证权限',
-          description: '距离上一次验证已经超过 20 分钟了。 为了保障您的账户安全， 您需要重新验证权限。',
-          icon: <a-icon type="smile" style="color: #108ee9" />
-        })
+      if (!result && verificationTS !== 0 && !this.isNotifacation) {
+        this.isNotifacation = true
+        if (process.client) {
+          this.$notification.open({
+            message: '需要重新验证权限',
+            description: '距离上一次验证已经超过 20 分钟了。 为了保障您的账户安全， 您需要重新验证权限。',
+            icon: <a-icon type="smile" style="color: #108ee9" />
+          })
+        }
       }
       return result
     },

@@ -7,7 +7,11 @@
         :closable="false"
         :visible="drawerOpened"
       >
-        <div slot="handle" :class="isAutoSwitch ? 'drawer-handle drawer-handle-auto' : 'drawer-handle'" @click="openOrCloseMenuDrawer">
+        <div
+          slot="handle"
+          :class="isAutoSwitch ? 'drawer-handle drawer-handle-auto' : 'drawer-handle'"
+          @click="openOrCloseMenuDrawer"
+        >
           <i class="drawer-handle-icon" />
         </div>
         <a-menu
@@ -108,7 +112,12 @@
       </a-drawer>
     </div>
     <a-row>
-      <a-col :xs="0" :sm="0" :md="isAutoSwitch ? 5 : 0" :lg="isAutoSwitch ? 4 : 0">
+      <a-col
+        :xs="0"
+        :sm="0"
+        :md="isAutoSwitch ? 5 : 0"
+        :lg="isAutoSwitch ? 4 : 0"
+      >
         <div class="siderbar-menu">
           <a-menu
             class="siderbar-munu-inner"
@@ -207,7 +216,12 @@
           </a-menu>
         </div>
       </a-col>
-      <a-col :xs="{offset: 3, span: 18 }" :sm="{offset: 2, span: 20 }" :md="isAutoSwitch ? {span: 18, offset: 1} : 24" :lg="isAutoSwitch ? {span: 19, offset: 1} : 0">
+      <a-col
+        :xs="{offset: 3, span: 18 }"
+        :sm="{offset: 2, span: 20 }"
+        :md="isAutoSwitch ? {span: 18, offset: 1} : {span: 24, offset: 0}"
+        :lg="isAutoSwitch ? {span: 19, offset: 1} : {span: 24, offset: 0}"
+      >
         <div class="dashboard-layout-content">
           <slot>
             <h1>
@@ -253,7 +267,8 @@ export default {
   data() {
     return {
       drawerOpened: false,
-      menuList: [ // 埋坑， 动态生产 Menu
+      menuList: [
+        // 埋坑， 动态生产 Menu
         {
           isSubMenu: false,
           title: '面板概览',
