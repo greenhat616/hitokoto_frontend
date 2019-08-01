@@ -13,8 +13,8 @@ export default {
   },
   data() {
     return {
-      menuSelected: 'user-preference',
-      menuOpened: 'user'
+      menuSelected: ['user-preference'],
+      menuOpened: ['user']
     }
   },
   head() {

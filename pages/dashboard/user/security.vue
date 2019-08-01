@@ -80,7 +80,7 @@
               <a-row :gutter="{ xs: 0, sm: 0, md: 24}">
                 <a-col :md="12">
                   <a-form-item
-                    label="公司"
+                    label="学历"
                   >
                     <a-select default-value="本科">
                       <a-select-option value="高中及以下">
@@ -100,7 +100,7 @@
                 </a-col>
                 <a-col :md="12">
                   <a-form-item
-                    label="学历"
+                    label="学校"
                   >
                     <a-select
                       default-value="湖南大学"
