@@ -26,7 +26,8 @@
     </div>
     <a-row>
       <a-col
-        :v-sticky="{ zIndex: 0 }"
+        v-sticky
+        class="menu-siderbar"
         :xs="0"
         :sm="0"
         :md="isAutoSwitch ? 5 : 0"
