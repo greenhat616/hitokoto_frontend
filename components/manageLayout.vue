@@ -26,6 +26,7 @@
     </div>
     <a-row>
       <a-col
+        :v-sticky="{ zIndex: 0 }"
         :xs="0"
         :sm="0"
         :md="isAutoSwitch ? 5 : 0"

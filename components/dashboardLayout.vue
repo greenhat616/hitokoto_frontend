@@ -26,12 +26,13 @@
     </div>
     <a-row>
       <a-col
+        :v-sticky="{ zIndex: 0 }"
         :xs="0"
         :sm="0"
         :md="isAutoSwitch ? 5 : 0"
         :lg="isAutoSwitch ? 4 : 0"
       >
-        <div v-sticky class="siderbar-menu">
+        <div class="siderbar-menu">
           <generate-menu-list
             class="siderbar-menu-inner"
             mode="inline"
