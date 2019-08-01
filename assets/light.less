@@ -374,10 +374,11 @@ a {
 }
 .siderbar-menu {
   overflow: auto;
-  .siderbar-munu-inner {
-    min-height: 100vh;
+  .siderbar-menu-inner {
+    height: 100vh;
   }
 }
+
 @media screen and (min-width: 768px) {
   .drawer-handle.drawer-handle-auto {
     display: none;
@@ -453,7 +454,16 @@ a {
 
 .mobile-menu {
   border-right: 0;
+  overflow: hidden;
   ul, li {
-    max-width: 100%;
+    max-width: 100%
   }
+}
+
+.menu-siderbar {
+  z-index: 0 !important;
+}
+
+.hitokoto-header-dashboard {
+  max-width: 100%;
 }
