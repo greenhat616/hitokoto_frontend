@@ -4,7 +4,7 @@
     <a-row>
       <a-col span="22">
         <a-table :columns="columns" :data-source="data" bordered>
-          <template slot-scope="text, record" solt="action">
+          <template slot-scope="text, record" slot="action">
             <a href="javascript:;" @click="delete(record.key)">删除</a>
           </template>
         </a-table>
