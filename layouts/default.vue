@@ -35,7 +35,7 @@ export default {
       const path = this.$route.path
       if (path === '/dashboard') {
         return false
-      } else if (path.match(/\/dashboard\/(.*)/)) {
+      } else if (path.match(/\/dashboard\/(.*)/) || path.match(/\/manage(.*)/)) {
         return true
       }
       return false
