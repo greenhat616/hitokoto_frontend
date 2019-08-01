@@ -1,7 +1,7 @@
 <template>
   <div class="hitokoto-home">
     <div class="inner">
-      <div class="exhibition">
+      <div :class="exhibitionClass">
         <p class="hitokoto">
           忘记一个人，并非不再想起，而是偶尔想起，心中却不再有波澜。
         </p>
@@ -21,25 +21,30 @@ export default {
   layout: 'home',
   data() {
     return {
+      exhibitionClass: ['exhibition']
     }
   },
   mounted: function () {
+    process.nextTick(() => this.exhibitionClass.unshift('hitokoto-active'))
+  },
+  head() {
+    return {
+      title: 'Hitokoto'
+    }
   }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .hitokoto-home {
-  position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  flex: 1;
 
   & > .inner {
     position: relative;
@@ -48,7 +53,11 @@ export default {
 
   .exhibition {
     padding: 10px 20px;
-
+    height: 0;
+    transition: 0.8s;
+    visibility: 0;
+    opacity: 0;
+    margin-bottom: -3em;
     & > * {
       font-family: "Microsoft JhengHei", "Source Han Serif SC", "Source Han Serif", 'source-han-serif-sc', '宋体', 'SimSun', '华文细黑', 'STXihei', serif;
     }
@@ -66,6 +75,12 @@ export default {
       text-align: right;
       font-size: 1.4em;
     }
+  }
+  .hitokoto-active {
+    opacity: 1;
+    visibility: 1;
+    height: auto;
+    margin-bottom: 0;
   }
 }
 </style>

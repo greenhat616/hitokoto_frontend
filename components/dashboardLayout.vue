@@ -7,208 +7,50 @@
         :closable="false"
         :visible="drawerOpened"
       >
-        <div slot="handle" :class="isAutoSwitch ? 'drawer-handle drawer-handle-auto' : 'drawer-handle'" @click="openOrCloseMenuDrawer">
+        <div
+          slot="handle"
+          :class="isAutoSwitch ? 'drawer-handle drawer-handle-auto' : 'drawer-handle'"
+          @click="openOrCloseMenuDrawer"
+        >
           <i class="drawer-handle-icon" />
         </div>
-        <a-menu
-          mode="inline"
+        <generate-menu-list
           class="mobile-menu"
-          :default-open-keys="menuOpened"
-          :selected-keys="menuSelected"
-        >
-          <a-menu-item key="dashboard">
-            <nuxt-link to="/dashboard">
-              <a-icon type="dashboard" />
-              面板概览
-            </nuxt-link>
-          </a-menu-item>
-          <a-sub-menu key="sentence">
-            <span slot="title">
-              <icon-font type="icon-hashtag" />
-              <span>
-                我的一言
-              </span>
-            </span>
-            <a-menu-item key="sentence-overlook">
-              <nuxt-link to="/dashboard/hitokoto">
-                状态概览
-              </nuxt-link>
-            </a-menu-item>
-            <a-menu-item key="sentence-collection">
-              <nuxt-link to="/dashboard/hitokoto/collection">
-                我的收藏
-              </nuxt-link>
-            </a-menu-item>
-            <a-menu-item key="sentence-append">
-              <nuxt-link to="/dashboard/hitokoto/append">
-                添加一言
-              </nuxt-link>
-            </a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="ticket">
-            <span slot="title">
-              <a-icon type="profile" />
-              <span>
-                工单系统
-              </span>
-            </span>
-            <a-menu-item key="ticket-list">
-              <nuxt-link to="/dashboard/ticket">
-                我的工单
-              </nuxt-link>
-            </a-menu-item>
-            <a-menu-item key="ticket-append">
-              <nuxt-link to="/dashboard/ticket/create">
-                创建工单
-              </nuxt-link>
-            </a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="dev">
-            <span slot="title">
-              <a-icon type="tool" />
-              <span>
-                开发者中心
-              </span>
-            </span>
-            <a-menu-item key="accss-management">
-              <nuxt-link to="/dashboard/dev/management">
-                授权管理
-              </nuxt-link>
-            </a-menu-item>
-            <a-menu-item key="operate-list">
-              <nuxt-link to="/dashboard/dev/log">
-                操作记录
-              </nuxt-link>
-            </a-menu-item>
-            <a-menu-item key="interface-useage">
-              <nuxt-link to="/dashboard/dev/interface">
-                接口说明
-              </nuxt-link>
-            </a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="user">
-            <span slot="title">
-              <a-icon type="user" />
-              <span>
-                用户中心
-              </span>
-            </span>
-            <a-menu-item key="user-security">
-              <nuxt-link to="/dashboard/user/security">
-                账户安全
-              </nuxt-link>
-            </a-menu-item>
-            <a-menu-item key="user-setting">
-              <nuxt-link to="/dashboard/user/setting">
-                账户设置
-              </nuxt-link>
-            </a-menu-item>
-          </a-sub-menu>
-        </a-menu>
+          mode="inline"
+          :menu-list="menuList"
+          :base-target="baseTarget"
+          :menu-opened="menuOpened"
+          :menu-selected="menuSelected"
+        />
       </a-drawer>
     </div>
     <a-row>
-      <a-col :xs="0" :sm="0" :md="isAutoSwitch ? 5 : 0" :lg="isAutoSwitch ? 4 : 0">
+      <a-col
+        v-sticky
+        class="menu-siderbar"
+        :xs="0"
+        :sm="0"
+        :md="isAutoSwitch ? 5 : 0"
+        :lg="isAutoSwitch ? 4 : 0"
+      >
         <div class="siderbar-menu">
-          <a-menu
-            class="siderbar-munu-inner"
+          <generate-menu-list
+            class="siderbar-menu-inner"
             mode="inline"
-            :default-open-keys="menuOpened"
-            :selected-keys="menuSelected"
-          >
-            <a-menu-item key="dashboard">
-              <nuxt-link to="/dashboard">
-                <a-icon type="dashboard" />
-                面板概览
-              </nuxt-link>
-            </a-menu-item>
-            <a-sub-menu key="sentence">
-              <span slot="title">
-                <icon-font type="icon-hashtag" />
-                <span>
-                  我的一言
-                </span>
-              </span>
-              <a-menu-item key="sentence-overlook">
-                <nuxt-link to="/dashboard/hitokoto">
-                  状态概览
-                </nuxt-link>
-              </a-menu-item>
-              <a-menu-item key="sentence-collection">
-                <nuxt-link to="/dashboard/hitokoto/collection">
-                  我的收藏
-                </nuxt-link>
-              </a-menu-item>
-              <a-menu-item key="sentence-append">
-                <nuxt-link to="/dashboard/hitokoto/append">
-                  添加一言
-                </nuxt-link>
-              </a-menu-item>
-            </a-sub-menu>
-            <a-sub-menu key="ticket">
-              <span slot="title">
-                <a-icon type="profile" />
-                <span>
-                  工单系统
-                </span>
-              </span>
-              <a-menu-item key="ticket-list">
-                <nuxt-link to="/dashboard/ticket">
-                  我的工单
-                </nuxt-link>
-              </a-menu-item>
-              <a-menu-item key="ticket-append">
-                <nuxt-link to="/dashboard/ticket/create">
-                  创建工单
-                </nuxt-link>
-              </a-menu-item>
-            </a-sub-menu>
-            <a-sub-menu key="dev">
-              <span slot="title">
-                <a-icon type="tool" />
-                <span>
-                  开发者中心
-                </span>
-              </span>
-              <a-menu-item key="accss-management">
-                <nuxt-link to="/dashboard/dev/management">
-                  授权管理
-                </nuxt-link>
-              </a-menu-item>
-              <a-menu-item key="operate-list">
-                <nuxt-link to="/dashboard/dev/log">
-                  操作记录
-                </nuxt-link>
-              </a-menu-item>
-              <a-menu-item key="interface-useage">
-                <nuxt-link to="/dashboard/dev/interface">
-                  接口说明
-                </nuxt-link>
-              </a-menu-item>
-            </a-sub-menu>
-            <a-sub-menu key="user">
-              <span slot="title">
-                <a-icon type="user" />
-                <span>
-                  用户中心
-                </span>
-              </span>
-              <a-menu-item key="user-security">
-                <nuxt-link to="/dashboard/user/security">
-                  账户安全
-                </nuxt-link>
-              </a-menu-item>
-              <a-menu-item key="user-setting">
-                <nuxt-link to="/dashboard/user/setting">
-                  账户设置
-                </nuxt-link>
-              </a-menu-item>
-            </a-sub-menu>
-          </a-menu>
+            :menu-list="menuList"
+            :base-target="baseTarget"
+            :menu-opened="menuOpened"
+            :menu-selected="menuSelected"
+          />
         </div>
       </a-col>
-      <a-col :xs="{offset: 3, span: 18 }" :sm="{offset: 2, span: 20 }" :md="isAutoSwitch ? {span: 18, offset: 1} : 24" :lg="isAutoSwitch ? {span: 19, offset: 1} : 0">
-        <div class="dashboard-layout-content">
+      <a-col
+        :xs="{offset: 3, span: 18 }"
+        :sm="{offset: 2, span: 20 }"
+        :md="isAutoSwitch ? {span: 18, offset: 1} : {span: 24, offset: 0}"
+        :lg="isAutoSwitch ? {span: 19, offset: 1} : {span: 24, offset: 0}"
+      >
+        <div class="dashboard-layout-content" style="overflow: hidden;">
           <slot>
             <h1>
               这是默认显示内容
@@ -219,21 +61,13 @@
     </a-row>
   </div>
 </template>
-<style>
-.ant-layout {
-  background: #fff;
-}
-</style>
 
 <script>
-import { Icon } from 'ant-design-vue'
+import generateMenuList from '~/components/generateMenuList.vue'
 
-const IconFont = Icon.createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_1315053_91wjjfbpuh6.js'
-})
 export default {
   components: {
-    IconFont
+    generateMenuList
   },
   props: {
     menuSelected: {
@@ -253,20 +87,161 @@ export default {
   data() {
     return {
       drawerOpened: false,
-      menuList: [ // 埋坑， 动态生产 Menu
+      baseTarget: '/dashboard',
+      menuList: [
         {
           isSubMenu: false,
           title: '面板概览',
-          href: '/dashboard',
-          key: 'dashboard'
+          target: '',
+          iconType: 'dashboard',
+          isIconFont: false,
+          requireAuthority: 'user',
+          key: 'dashboard',
+          subMenu: []
         },
         {
           isSubMenu: true,
           title: '我的一言',
-          iconType: '',
-          isFontIcon: false,
-          key: 'hitokoto',
-          subMenu: []
+          target: '',
+          iconType: 'icon-hashtag',
+          isIconFont: true,
+          requireAuthority: 'user',
+          key: 'sentence',
+          subMenu: [
+            {
+              isSubMenu: false,
+              title: '状态概览',
+              target: '/hitokoto',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'sentence-overlook', // TODO: 把 Overlook 改成 Overview
+              subMenu: []
+            },
+            {
+              isSubMenu: false,
+              title: '我的收藏',
+              target: '/hitokoto/collection',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'sentence-collection',
+              subMenu: []
+            },
+            {
+              isSubMenu: false,
+              title: '添加一言',
+              target: '/hitokoto/append',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'sentence-append',
+              subMenu: []
+            }
+          ]
+        },
+        {
+          isSubMenu: true,
+          title: '工单系统',
+          target: '',
+          iconType: 'profile',
+          isIconFont: false,
+          requireAuthority: 'user',
+          key: 'ticket',
+          subMenu: [
+            {
+              isSubMenu: false,
+              title: '我的工单',
+              target: '/ticket',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'ticket-list',
+              subMenu: []
+            },
+            {
+              isSubMenu: false,
+              title: '创建工单',
+              target: '/ticket/create',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'ticket-append',
+              subMenu: []
+            }
+          ]
+        },
+        {
+          isSubMenu: true,
+          title: '开发者中心',
+          target: '',
+          iconType: 'tool',
+          isIconFont: false,
+          requireAuthority: 'user',
+          key: 'dev',
+          subMenu: [
+            {
+              isSubMenu: false,
+              title: '授权管理',
+              target: '/dev/management',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'accss-management',
+              subMenu: []
+            },
+            {
+              isSubMenu: false,
+              title: '操作记录',
+              target: '/dev/log',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'operate-list',
+              subMenu: []
+            },
+            {
+              isSubMenu: false,
+              title: '操作记录',
+              target: '/dev/interface',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'interface-useage',
+              subMenu: []
+            }
+          ]
+        },
+        {
+          isSubMenu: true,
+          title: '用户中心',
+          target: '',
+          iconType: 'user',
+          isIconFont: false,
+          requireAuthority: 'user',
+          key: 'user',
+          subMenu: [
+            {
+              isSubMenu: false,
+              title: '账户安全',
+              target: '/user/security',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'user-security',
+              subMenu: []
+            },
+            {
+              isSubMenu: false,
+              title: '偏好设置',
+              target: '/user/preference',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'user-preference',
+              subMenu: []
+            }
+          ]
         }
       ]
     }

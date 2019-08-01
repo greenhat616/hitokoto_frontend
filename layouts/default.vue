@@ -1,12 +1,17 @@
 <template>
   <a-locale-provider :locale="locale">
-    <a-layout>
+    <a-layout :class="enableWhiteBG ? 'ant-layout-dashboard' : ''">
       <common-header />
       <nuxt />
       <fixed-player />
     </a-layout>
   </a-locale-provider>
 </template>
+<style lang="less">
+  .ant-layout-dashboard {
+    background: #ffffff;
+  }
+</style>
 <script>
 import moment from 'moment'
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
@@ -23,6 +28,17 @@ export default {
   data() {
     return {
       locale: zhCN
+    }
+  },
+  computed: {
+    enableWhiteBG() {
+      const path = this.$route.path
+      if (path === '/dashboard' || path === '/dashboard/') {
+        return false
+      } else if (path.match(/\/dashboard\/(.*)/) || path.match(/\/manage(.*)/)) {
+        return true
+      }
+      return false
     }
   }
 }
