@@ -62,7 +62,7 @@ export default {
     '@/plugins/marked',
     // '@/plugins/sw.js'
     '@/plugins/lazyload',
-    '@/plugins/sticky.js'
+    { src: '@/plugins/sticky.js', ssr: false }
   ],
   /*
    ** Nuxt.js modules

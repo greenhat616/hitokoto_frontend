@@ -31,7 +31,7 @@
         :md="isAutoSwitch ? 5 : 0"
         :lg="isAutoSwitch ? 4 : 0"
       >
-        <div class="siderbar-menu">
+        <div v-sticky class="siderbar-menu">
           <generate-menu-list
             class="siderbar-menu-inner"
             mode="inline"
