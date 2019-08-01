@@ -54,7 +54,7 @@ export default {
   .exhibition {
     padding: 10px 20px;
     height: 0;
-    transition: 1s;
+    transition: 0.8s;
     visibility: 0;
     opacity: 0;
     margin-bottom: -3em;
