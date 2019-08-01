@@ -8,11 +8,11 @@
       <a-sub-menu v-if="item.isSubMenu" :key="item.key">
         <span slot="title">
           <a-icon
-            v-if="item.iconType != '' && !item.isIconFont"
+            v-if="item.iconType && item.iconType != '' && !item.isIconFont"
             :type="item.iconType"
           />
           <icon-font
-            v-if="item.iconType != '' && item.isIconFont"
+            v-if="item.iconType && item.iconType != '' && item.isIconFont"
             :type="item.iconType"
           />
           <span>{{ item.title }}</span>
@@ -40,11 +40,11 @@
       >
         <nuxt-link :to="baseTarget + item.target">
           <a-icon
-            v-if="item.iconType != '' && !item.isIconFont"
+            v-if="item.iconType && item.iconType != '' && !item.isIconFont"
             :type="item.iconType"
           />
           <icon-font
-            v-if="item.iconType != '' && item.isIconFont"
+            v-if="item.iconType && item.iconType != '' && item.isIconFont"
             :type="item.iconType"
           />
           {{ item.title }}
