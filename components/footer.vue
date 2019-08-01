@@ -1,5 +1,5 @@
 <template>
-  <footer class="home-footer">
+  <footer :class="footerClassName">
     Sponsored by <a-tooltip placement="topRight">
       <template slot="title">
         <span>感谢为接口提供动态加速服务</span>
@@ -16,12 +16,28 @@
 <style lang="less">
   .home-footer {
     text-align: center;
+    padding: 0;
+    visibility: 0;
+    opacity: 0;
+    transition: 0.6s;
+  }
+  .footer-fade-in {
+    opacity: 1;
+    visibility: 1;
     padding: 0.45em;
   }
 </style>
 <script>
 import moment from 'moment'
 export default {
+  data() {
+    return {
+      footerClassName: ['home-footer']
+    }
+  },
+  mounted() {
+    process.nextTick(() => this.footerClassName.unshift('footer-fade-in'))
+  },
   methods: {
     moment
   }
