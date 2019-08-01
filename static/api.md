@@ -82,7 +82,7 @@
     dataType: 'jsonp',
     jsonp: 'callback',
     jsonpCallback: 'hitokoto',
-    success: function(data) {
+    success: function (data) {
       $('#hitokoto').text(data.hitokoto);
     },
     error: function (jqXHR, textStatus, errorThrown) {

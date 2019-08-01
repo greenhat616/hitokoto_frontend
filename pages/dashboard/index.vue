@@ -196,11 +196,6 @@
   color: gray;
   font-size: 2.4em;
 }
-
-.hitokoto-header {
-  max-width: 100%;
-}
-
 @media screen and (min-width: 768) {
   .logo {
     padding-left: 1em;

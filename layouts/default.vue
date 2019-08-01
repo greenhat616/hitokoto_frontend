@@ -1,6 +1,6 @@
 <template>
   <a-locale-provider :locale="locale">
-    <a-layout :class="isDashboardRoute ? 'ant-layout-dashboard' : ''">
+    <a-layout :class="enableWhiteBG ? 'ant-layout-dashboard' : ''">
       <common-header />
       <nuxt />
       <fixed-player />
@@ -31,9 +31,9 @@ export default {
     }
   },
   computed: {
-    isDashboardRoute() {
+    enableWhiteBG() {
       const path = this.$route.path
-      if (path === '/dashboard') {
+      if (path === '/dashboard' || path === '/dashboard/') {
         return false
       } else if (path.match(/\/dashboard\/(.*)/) || path.match(/\/manage(.*)/)) {
         return true

@@ -1,6 +1,6 @@
 <template>
   <div class="hitokoto-header-outer">
-    <a-layout-header class="hitokoto-header">
+    <a-layout-header :class="isDashboardRoute ? 'hitokoto-header hitokoto-header-dashboard' : 'hitokoto-header'">
       <a-row>
         <a-col :xs="{span: 12, offset: 6}" :sm="{span: 6, offset: 9}" :md="{span:4, offset: 0}">
           <div class="logo">
@@ -91,6 +91,15 @@ export default {
     return {
       menu: false,
       selectedKey: ''
+    }
+  },
+  computed: {
+    isDashboardRoute() {
+      const path = this.$route.path
+      if (path.match(/\/dashboard(.*)/) || path.match(/\/manage(.*)/)) {
+        return true
+      }
+      return false
     }
   },
   watch: {
