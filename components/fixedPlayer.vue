@@ -28,6 +28,7 @@ export default {
             preload: 'metadata',
             audio: audios
           })
+          window.document.querySelector('.aplayer-icon-lrc').click()
         }
         if (!this.isMobile) {
           if (this.getPlayerAutoPlaySet === 0) {
