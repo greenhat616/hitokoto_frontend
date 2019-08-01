@@ -63,26 +63,37 @@
 <p id="hitokoto">:D 获取中...</p>
 <!-- 以下写法，选取一种即可 -->
 
-<!-- 现代写法，推荐 -->
-<!-- 兼容低版本浏览器 (包括 IE)，可移除； Start -->
-<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3/fetch.min.js"></script>
-<!--End-->
+<!-- 现代写法，推荐(不支持 IE) -->
 <script>
   fetch('https://v1.hitokoto.cn')
-    .then(function (res){
-      return res.json();
-    })
-    .then(function (data) {
+    .then(response => response.json())
+    .then(data => {
       var hitokoto = document.getElementById('hitokoto');
       hitokoto.innerText = data.hitokoto;
     })
-    .catch(function (err) {
-      console.error(err);
-    })
+    .catch(err => console.error);
 </script>
 
-<!-- 老式写法，兼容性最忧 -->
+<!-- 如果你的站点使用了 jQuery(如果是 JQ 3.x 以及更新的版本， 你得使用完整版的 JQ)， 那么你可以... -->
+<script>
+  $.ajax({
+    type: 'GET',
+    url: 'https://v1.hitokoto.cn',
+    dataType: 'jsonp',
+    jsonp: 'callback',
+    jsonpCallback: 'hitokoto',
+    success: function(data) {
+      $('#hitokoto').text(data.hitokoto);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      // 错误信息处理
+      console.error(textStatus, errorThrown)
+    }
+  });
+</script>
+<!-- P.S 我们依然不推荐使用 jQuery Ajax。 推荐使用 fetch Api 或者 axios.js-->
+
+<!-- 老式写法，兼容性最忧; 支持 IE -->
 <script>
   var xhr = new XMLHttpRequest();
   xhr.open('get', 'https://v1.hitokoto.cn');
@@ -103,30 +114,24 @@
 ## 网易云接口使用示例
 
 ```javascript
-// 本示例需要浏览器支持 Promise 以及 fetch. 若需要全部浏览器支持， 请参考一言示例引用 bluebird 和 fetch.
+// 本示例需要浏览器支持 Promise 以及 fetch。
 function fetch163Playlist(playlist_id) {
-  return new Promise(function (ok, err) {
+  return new Promise((ok, err) => {
     fetch("https://v1.hitokoto.cn/nm/playlist/" + playlist_id)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
+      .then(response => response.json())
+      .then(data => {
         var arr = [];
         data.playlist.tracks.map(function (value) {
           arr.push(value.id);
         });
         return arr;
       })
-      .then(function (ids) {
+      .then(ids => {
         return fetch163Songs(ids);
       })
-      .then(function (data) {
-        ok(data);
-      })
-      .catch(function (e) {
-        err(e);
-      });
-  })
+      .then(data => ok)
+      .catch(e => err);
+  });
 }
 
 function fetch163Songs(IDS) {
@@ -138,25 +143,23 @@ function fetch163Songs(IDS) {
         break;
       case 'object':
         if (!Array.isArray(IDS)) {
-          err(new Error("Please enter array or number"));
+          err(new Error('Please enter array or number'));
         }
         ids = IDS;
         break;
       default:
-        err(new Error("Please enter array or number"));
+        err(new Error('Please enter array or number'));
         break;
     }  
-    fetch("https://v1.hitokoto.cn/nm/summary/" + ids.join(",") + "?lyric=true&common=true")
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
+    fetch(`https://v1.hitokoto.cn/nm/summary/${ids.join(',')}?lyric=true&common=true`)
+      .then(response => response.json())
+      .then(data => {
         var songs = [];
         data.songs.map(function (song) {
           songs.push({
             name: song.name,
             url: song.url,
-            artist: song.artists.join("/"),
+            artist: song.artists.join('/'),
             album: song.album.name,
             pic: song.album.picture,
             lrc: song.lyric
@@ -164,30 +167,19 @@ function fetch163Songs(IDS) {
         });
         return songs;
       })
-      .then(function (result) {
-        ok(result);
-      })
-      .catch(function (e) {
-        err(e);
-      });
+      .then(result => ok)
+      .catch(e => err);
   });
 }
 
 // 使用测试
 fetch163Playlist(2158283120)
-  .then(function (data) {
-    console.log(data);
-  })
-  .catch(function (err) {
-    console.error(err);
-  })
+  .then(data => console.log)
+  .catch(err => console.error);
+
 fetch163Songs([28391863, 22640061])
-  .then(function (data) {
-    console.log(data);
-  })
-  .catch(function (err) {
-    console.error(err);
-  })
+  .then(data => console.log)
+  .catch(err => console.error);
 ```
 
 ## 扩展

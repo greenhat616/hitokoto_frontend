@@ -61,7 +61,8 @@ export default {
     '@/plugins/antd-ui',
     '@/plugins/marked',
     // '@/plugins/sw.js'
-    '@/plugins/lazyload'
+    '@/plugins/lazyload',
+    '@/plugins/sticky.js'
   ],
   /*
    ** Nuxt.js modules

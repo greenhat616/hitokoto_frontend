@@ -48,7 +48,7 @@
         :md="isAutoSwitch ? {span: 18, offset: 1} : {span: 24, offset: 0}"
         :lg="isAutoSwitch ? {span: 19, offset: 1} : {span: 24, offset: 0}"
       >
-        <div class="dashboard-layout-content">
+        <div class="dashboard-layout-content" style="overflow: hidden;">
           <slot>
             <h1>
               这是默认显示内容
