@@ -101,6 +101,16 @@ export default {
         },
         {
           isSubMenu: false,
+          title: '公告管理',
+          target: '/announcements',
+          iconType: '',
+          isIconFont: false,
+          requireAuthority: 'admin',
+          key: 'announcements',
+          subMenu: []
+        },
+        {
+          isSubMenu: false,
           title: '用户管理',
           target: '/users',
           iconType: '',
@@ -137,6 +147,16 @@ export default {
           isIconFont: false,
           requireAuthority: 'admin',
           key: 'sentences',
+          subMenu: []
+        },
+        {
+          isSubMenu: false,
+          title: '站点设置',
+          target: '/settings',
+          iconType: '',
+          isIconFont: false,
+          requireAuthority: 'admin',
+          key: 'settings',
           subMenu: []
         }
       ]
