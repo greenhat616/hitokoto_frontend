@@ -2,7 +2,7 @@
   <footer :class="footerClassName">
     Sponsored by <a-tooltip placement="topRight">
       <template slot="title">
-        <span>感谢为接口提供动态加速服务</span>
+        <span>为接口提供动态加速服务</span>
       </template>
       <a href="https://www.dogecloud.com/" target="_blank">DogeCloud</a>
     </a-tooltip> • 沪ICP备16031287号-1 • <a-tooltip placement="topRight">
