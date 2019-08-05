@@ -94,17 +94,27 @@ export default {
           title: '状态概览',
           target: '/',
           key: 'overview',
-          iconType: '',
-          isIconFont: false,
+          iconType: 'icon-icon-data',
+          isIconFont: true,
           requireAuthority: 'admin',
+          subMenu: []
+        },
+        {
+          isSubMenu: false,
+          title: '公告管理',
+          target: '/announcements',
+          iconType: 'icon-gonggao',
+          isIconFont: true,
+          requireAuthority: 'admin',
+          key: 'announcements',
           subMenu: []
         },
         {
           isSubMenu: false,
           title: '用户管理',
           target: '/users',
-          iconType: '',
-          isIconFont: false,
+          iconType: 'icon-users',
+          isIconFont: true,
           requireAuthority: 'admin',
           key: 'users',
           subMenu: []
@@ -113,8 +123,8 @@ export default {
           isSubMenu: false,
           title: '工单管理',
           target: '/tickets',
-          iconType: '',
-          isIconFont: false,
+          iconType: 'icon-ticket',
+          isIconFont: true,
           requireAuthority: 'admin',
           key: 'tickets',
           subMenu: []
@@ -123,8 +133,8 @@ export default {
           isSubMenu: false,
           title: '句子审核',
           target: '/sentences',
-          iconType: '',
-          isIconFont: false,
+          iconType: 'icon-xiepinglun',
+          isIconFont: true,
           requireAuthority: 'reviewer',
           key: 'sentence-review',
           subMenu: []
@@ -133,10 +143,20 @@ export default {
           isSubMenu: false,
           title: '句子管理',
           target: '/sentence/review',
-          iconType: '',
-          isIconFont: false,
+          iconType: 'icon-quote',
+          isIconFont: true,
           requireAuthority: 'admin',
           key: 'sentences',
+          subMenu: []
+        },
+        {
+          isSubMenu: false,
+          title: '站点设置',
+          target: '/settings',
+          iconType: 'icon-settings',
+          isIconFont: true,
+          requireAuthority: 'admin',
+          key: 'settings',
           subMenu: []
         }
       ]

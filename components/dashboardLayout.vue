@@ -240,6 +240,16 @@ export default {
               requireAuthority: 'user',
               key: 'user-preference',
               subMenu: []
+            },
+            {
+              isSubMenu: false,
+              title: '消息通知',
+              target: '/user/notification',
+              iconType: '',
+              isIconFont: false,
+              requireAuthority: 'user',
+              key: 'user-notification',
+              subMenu: []
             }
           ]
         }

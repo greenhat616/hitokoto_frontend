@@ -1,6 +1,6 @@
 <template>
   <manage-layout :menu-opened="menuOpened" :menu-selected="menuSelected">
-    <h1>状态概览</h1>
+    <h1>工单管理</h1>
   </manage-layout>
 </template>
 <style lang="less">
@@ -16,12 +16,12 @@ export default {
   data() {
     return {
       menuOpened: [],
-      menuSelected: ['overview']
+      menuSelected: ['tickets']
     }
   },
   head() {
     return {
-      title: '状态概览 - 管理面板'
+      title: '工单管理 - 管理面板'
     }
   }
 }
