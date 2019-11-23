@@ -34,11 +34,12 @@ body {
 }
 
 .login-avatar .inner {
+  @radius: 50%;
   display: block;
   height: 8em;
   width: 8em;
   background-color: #e0e0e0;
-  border-radius: 50%;
+  border-radius: @radius;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -47,7 +48,7 @@ body {
   & > img {
     height: 100%;
     width: 100%;
-    border-radius: 50%;
+    border-radius: @radius;
   }
 }
 @media screen and (min-width: 768px) {
@@ -63,12 +64,6 @@ body {
     align-items: center;
     justify-content: center;
   }
-}
-
-.big-font {
-  font-size: 1.5em;
-  font-weight: 400;
-  color: #8821fb;
 }
 
 .menu-button {
@@ -142,16 +137,78 @@ a {
 .hitokoto-header-drawer .ant-drawer-body {
   padding: 0;
 }
-.hitokoto-header {
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 24px;
-  margin: 0 auto 0;
-}
 
-.hitokoto-header-outer {
+.hitokoto-header {
   background-color: #fff;
   box-shadow: 0 2px 8px #f0f1f2;
+
+  .logo {
+    .logo-icon {
+      margin-right: 5px;
+    }
+
+    .logo-text {
+      font-size: 1.5em;
+      font-weight: 400;
+      color: #8821fb;
+
+      &:after {
+        content: '.'
+      }
+    }
+  }
+
+  .hitokoto-header-inner {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 24px;
+    margin: 0 auto 0;
+  }
+
+  .menu-site {
+    background-color: transparent;
+  }
+  
+  &.is-home {
+    background-color: transparent;
+
+    .hitokoto-header-inner {
+      background-color: transparent;
+
+      .ant-row {
+        background-color: transparent;
+      }
+    }
+
+    .menu-site {
+      & > li {
+        padding-top: 8.5px;
+        padding-bottom: 8.5px;
+      }
+
+      .ant-menu-item,
+      .ant-menu-submenu {
+        border-bottom: 0;
+        border-top: 2px solid transparent;
+      }
+    
+      .ant-menu-item:hover,
+      .ant-menu-submenu:hover,
+      .ant-menu-item-active,
+      .ant-menu-submenu-active,
+      .ant-menu-item-open,
+      .ant-menu-submenu-open,
+      .ant-menu-item-selected,
+      .ant-menu-submenu-selected {
+        border-bottom: 0;
+        border-top: 2px solid transparent;
+      }
+    }
+  }
+
+  &.is-dashboard .hitokoto-header-inner {
+    max-width: 100%;
+  }
 }
 
 /**
@@ -163,56 +220,6 @@ a {
   background-attachment: scroll;
   background-size: cover;
   background-repeat: no-repeat;
-}
-// 透明化 header
-.home-header-outer {
-  background-color: transparent;
-}
-.home-header {
-  background-color: transparent;
-  .ant-row {
-    background-color: transparent;
-  }
-}
-.home-menu-site {
-  background-color: transparent
-}
-
-.home-header {
-  box-shadow: none;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto 0;
-  padding: 0 24px;
-}
-
-
-.home-menu-site > li {
-  padding-top: 8.5px;
-  padding-bottom: 8.5px;
-}
-
-.home-menu-site {
-  .ant-menu-item,
-  .ant-menu-submenu {
-    border-bottom: 0;
-    border-top: 2px solid transparent;
-  }
-
-  .ant-menu-item:hover,
-  .ant-menu-submenu:hover,
-  .ant-menu-item-active,
-  .ant-menu-submenu-active,
-  .ant-menu-item-open,
-  .ant-menu-submenu-open,
-  .ant-menu-item-selected,
-  .ant-menu-submenu-selected {
-    border-bottom: 0;
-    border-top: 2px solid transparent;
-  }
-
-  float: right;
-  border-bottom: 0;
 }
 
 /**
@@ -463,8 +470,4 @@ a {
 
 .menu-siderbar {
   z-index: 0 !important;
-}
-
-.hitokoto-header-dashboard {
-  max-width: 100%;
 }

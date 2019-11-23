@@ -1,11 +1,11 @@
 <template>
-  <div class="hitokoto-header-outer">
-    <a-layout-header :class="isDashboardRoute ? 'hitokoto-header hitokoto-header-dashboard' : 'hitokoto-header'">
+  <div class="hitokoto-header" :class="{ 'is-home': $route.path === '/', 'is-dashboard': isDashboardRoute }">
+    <a-layout-header class="hitokoto-header-inner">
       <a-row>
         <a-col :xs="{span: 12, offset: 6}" :sm="{span: 6, offset: 9}" :md="{span:4, offset: 0}">
           <div class="logo">
-            <hitokoto-icon :style="{fontSize: '32px'}" />
-            <span class="big-font">Hitokoto</span>
+            <hitokoto-icon class="logo-icon" :style="{fontSize: '32px'}" />
+            <span class="logo-text">Hitokoto</span>
           </div>
         </a-col>
         <a-col :xs="{span:4, offset: 2}" :sm="{span: 4, offset: 5}" :md="{span: 0}">

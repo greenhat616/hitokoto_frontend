@@ -1,7 +1,7 @@
 <template>
   <a-locale-provider :locale="locale">
     <a-layout class="home-layout">
-      <home-header />
+      <common-header />
       <nuxt />
       <fixed-player />
       <page-footer />
@@ -12,14 +12,14 @@
 import moment from 'moment'
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
 import 'moment/locale/zh-cn'
-import homeHeader from '~/components/homeHeader.vue'
+import commonHeader from '~/components/commonHeader.vue'
 import fixedPlayer from '~/components/fixedPlayer.vue'
 import pageFooter from '~/components/footer.vue'
 moment.locale('zh-cn')
 
 export default {
   components: {
-    homeHeader,
+    commonHeader,
     fixedPlayer,
     pageFooter
   },
